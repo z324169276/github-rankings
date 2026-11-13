@@ -285,9 +285,22 @@ function main() {
     details += 1;
   }
 
+  const lastmod = new Date(meta.lastRunAt || Date.now()).toISOString().slice(0, 10);
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${escXml(SITE_URL)}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+`;
+  fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap, 'utf8');
+
   fs.writeFileSync(
     path.join(DIST, 'robots.txt'),
-    `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}\n`,
+    `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}sitemap.xml\n`,
     'utf8',
   );
 
