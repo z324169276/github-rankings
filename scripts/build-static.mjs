@@ -250,6 +250,16 @@ function main() {
       top: 'api/v1/top.json',
     },
     feeds: ['feed.xml', 'feed/new.xml', 'feed/top.xml'],
+    mirror: {
+      provider: 'jsDelivr',
+      base: 'https://cdn.jsdelivr.net/gh/z324169276/github-rankings@data/',
+      note: '与本站同一份数据，带 CORS 头，可在浏览器直接 fetch；分支缓存约 12 小时',
+      examples: [
+        'https://cdn.jsdelivr.net/gh/z324169276/github-rankings@data/api/v1/trending.json',
+        'https://cdn.jsdelivr.net/gh/z324169276/github-rankings@data/api/v1/index.json',
+        'https://cdn.jsdelivr.net/gh/z324169276/github-rankings@data/feed.xml',
+      ],
+    },
   });
 
   // RSS：取各榜前 30 条
