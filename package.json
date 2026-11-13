@@ -1,0 +1,17 @@
+{
+  "name": "github-rankings",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GitHub 开源榜单：定时抓取 Star 快照，生成总榜 / 新星榜 / 热门榜静态站点",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "refresh": "node server/refresh.js",
+    "build": "node scripts/build-static.mjs",
+    "preview": "node scripts/serve-static.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "token": "ghp_你的GitHubToken",
+  "deepseekKey": "sk-你的DeepSeekKey",
+  "feishuWebhook": "https://open.feishu.cn/open-apis/bot/v2/hook/你的Webhook",
+  "feishuKeyword": "晨报",
+  "refreshHours": 2
+}

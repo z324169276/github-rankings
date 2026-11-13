@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GitHub 榜单 · 开源趋势追踪</title>
+  <meta name="description" content="每日更新的 GitHub 开源榜单：总榜、新星榜、热门榜，支持按语言筛选、关键词搜索与 Star 增长趋势图，快速发现值得关注的开源项目。" />
+  <meta name="keywords" content="GitHub,开源榜单,GitHub Trending,热门项目,Star 排行,新星榜,开源趋势" />
+  <meta name="author" content="z324169276" />
+  <meta name="theme-color" content="#0a84ff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GitHub 榜单" />
+  <meta property="og:title" content="GitHub 榜单 · 开源趋势追踪" />
+  <meta property="og:description" content="每日更新的 GitHub 开源榜单：总榜、新星榜、热门榜，支持按语言筛选与 Star 趋势图。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="GitHub 榜单 · 开源趋势追踪" />
+  <meta name="twitter:description" content="每日更新的 GitHub 开源榜单：总榜、新星榜、热门榜，支持按语言筛选与 Star 趋势图。" />
+  <link rel="preconnect" href="https://avatars.githubusercontent.com" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a84ff'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01L12 2z"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>GitHub 榜单</h1>
+        <p>开源趋势 · 数据驱动</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <div class="status-pill" id="statusPill">
+        <span class="dot" id="statusDot"></span>
+        <span id="statusText">加载中…</span>
+      </div>
+      <button class="btn ghost" id="refreshBtn" type="button">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+        刷新数据
+      </button>
+      <button class="btn icon" id="themeBtn" type="button" title="切换主题">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Real-time Open Source Radar</p>
+      <h2>今天，开源世界<em>在追什么</em></h2>
+      <p class="hero-desc">定时抓取 GitHub 官方 API，本地缓存星标快照，追踪总榜、新星与短期增速榜单。</p>
+      <div class="stats" id="stats">
+        <div class="stat"><span class="stat-value" id="statRepos">—</span><span class="stat-label">收录仓库</span></div>
+        <div class="stat"><span class="stat-value" id="statStars">—</span><span class="stat-label">累计 Star</span></div>
+        <div class="stat"><span class="stat-value" id="statUpdated">—</span><span class="stat-label">最近更新</span></div>
+        <div class="stat"><span class="stat-value" id="statNext">—</span><span class="stat-label">下次刷新</span></div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="segmented" id="scopeTabs" role="tablist">
+        <button class="seg active" data-scope="total" type="button">总榜</button>
+        <button class="seg" data-scope="new" type="button">新星榜</button>
+        <button class="seg" data-scope="trending" type="button">热门榜</button>
+      </div>
+      <div class="right-controls">
+        <div class="periods" id="periodTabs" hidden>
+          <button class="pill active" data-period="1d" type="button">24 小时</button>
+          <button class="pill" data-period="7d" type="button">7 天</button>
+          <button class="pill" data-period="30d" type="button">30 天</button>
+        </div>
+        <label class="search">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="searchInput" type="search" placeholder="搜索仓库 / 描述 / 标签" autocomplete="off" />
+        </label>
+      </div>
+    </section>
+
+    <div class="langs" id="langChips"></div>
+    <div class="notice" id="notice" hidden></div>
+
+    <section class="list" id="list"></section>
+    <div class="load-more-wrap" id="loadMoreWrap" hidden>
+      <button class="btn load-more" id="loadMoreBtn" type="button">加载更多</button>
+    </div>
+    <p class="footnote">数据来源 GitHub REST API · 本地缓存于 data/db.json · 未经认证时受官方速率限制</p>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <script src="vendor/marked.js"></script>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
