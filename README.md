@@ -16,7 +16,7 @@
 
 ## 在线访问
 
-部署在 GitHub Pages：`https://<用户名>.github.io/github-rankings/`
+部署在 GitHub Pages：<https://z324169276.github.io/github-rankings/>
 
 ## 本地运行
 
