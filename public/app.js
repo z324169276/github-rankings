@@ -527,6 +527,7 @@ async function openDetail(fullName) {
       </div>
       <div class="modal-actions">
         <button class="btn" data-close type="button">关闭</button>
+        ${STATIC ? `<a class="btn" href="repo/${escapeHtml(d.fullName)}.html">独立页面</a>` : ''}
         <a class="btn primary" href="${escapeHtml(d.url)}" target="_blank" rel="noopener">在 GitHub 打开</a>
       </div>`;
 
