@@ -13,6 +13,7 @@ const MIME = {
   '.js': 'text/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
   '.svg': 'image/svg+xml',
+  '.xml': 'application/xml; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
   '.png': 'image/png',
   '.ico': 'image/x-icon',
@@ -25,8 +26,11 @@ if (!fs.existsSync(ROOT)) {
 
 http
   .createServer((req, res) => {
-    const urlPath = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
-    const rel = urlPath === '/' ? 'index.html' : urlPath.replace(/^\/+/, '');
+    let raw = req.url || '/';
+    // 兼容 //foo 这类协议相对写法，new URL 会直接抛错
+    if (raw.startsWith('//')) raw = raw.slice(1);
+    const urlPath = decodeURIComponent(raw.split('?')[0]);
+    const rel = urlPath === '/' || urlPath === '' ? 'index.html' : urlPath.replace(/^\/+/, '');
     const file = path.join(ROOT, rel);
     if (!file.startsWith(ROOT)) {
       res.writeHead(403).end('Forbidden');
