@@ -13,6 +13,7 @@
 - **关键词搜索**：匹配仓库名、简介与 topics
 - **项目详情**：Star / Fork / Issue、许可证、Star 增长曲线、README 原文
 - **独立详情页**：每个仓库一个静态 HTML（`/repo/{owner}/{name}.html`），带 canonical 与结构化数据，可直接分享和被搜索引擎收录
+- **分享卡**：首页使用自绘的 1200×630 品牌图（`/og.png`），详情页使用 GitHub 的仓库预览图
 - **深浅色主题**、分享链接（筛选状态写入 URL）
 
 ## 在线访问
@@ -192,6 +193,7 @@ GitHub 官方没有公开 trending 接口，本项目用 Search API 构造：
 ├─ scripts/
 │  ├─ build-static.mjs   导出静态站（API / RSS / 详情页 / sitemap）
 │  ├─ detail-page.mjs    仓库详情页渲染（纯 HTML + 内联 SVG）
+│  ├─ og-card.html       分享卡源文件（headless 浏览器截成 public/og.png）
 │  └─ serve-static.mjs   本地预览 dist/
 ├─ public/               前端页面
 ├─ data/db.json          榜单数据快照
