@@ -12,6 +12,7 @@
 - **语言筛选**：13 个主流语言分榜
 - **关键词搜索**：匹配仓库名、简介与 topics
 - **项目详情**：Star / Fork / Issue、许可证、Star 增长曲线、README 原文
+- **独立详情页**：每个仓库一个静态 HTML（`/repo/{owner}/{name}.html`），带 canonical 与结构化数据，可直接分享和被搜索引擎收录
 - **深浅色主题**、分享链接（筛选状态写入 URL）
 
 ## 在线访问
@@ -105,6 +106,19 @@ const { items } = await res.json();
 
 `data` 分支每天被重写为单个提交。jsDelivr 对分支地址有约 12 小时缓存，刚更新后可能仍读到上一版。
 
+### 仓库详情页
+
+构建时会为每个收录的仓库生成一个纯静态页面，无需 JavaScript：
+
+| 地址 | 内容 |
+| --- | --- |
+| `/repo/{owner}/{name}.html` | Star / Fork / Issue、可观测区间增量、Star 曲线（内联 SVG）、许可证、topics、同语言推荐 |
+| `/data/repo/{owner}__{name}.json` | 同一份详情数据，供前端弹窗按需加载 |
+| `/sitemap.xml` | 首页 + 全部详情页 |
+| `/robots.txt` | 允许全站抓取，并指向 `sitemap.xml` |
+
+详情页只使用相对路径，本地 `npm run preview` 与 GitHub Pages 子路径部署都能直接打开。列表卡片打开弹窗后，点「独立页面」即可跳到对应静态页。
+
 ## 本地运行
 
 需要 Node.js 20 或更高版本。项目零依赖，无需 `npm install`。
@@ -176,7 +190,8 @@ GitHub 官方没有公开 trending 接口，本项目用 Search API 构造：
 │  ├─ store.js           JSON 快照存储
 │  └─ translator.js      DeepSeek 分段翻译
 ├─ scripts/
-│  ├─ build-static.mjs   导出静态站
+│  ├─ build-static.mjs   导出静态站（API / RSS / 详情页 / sitemap）
+│  ├─ detail-page.mjs    仓库详情页渲染（纯 HTML + 内联 SVG）
 │  └─ serve-static.mjs   本地预览 dist/
 ├─ public/               前端页面
 ├─ data/db.json          榜单数据快照
