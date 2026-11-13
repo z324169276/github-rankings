@@ -76,7 +76,35 @@ export function persistSoon(delay = 4000) {
 }
 
 const SNAPSHOT_MIN_GAP = 50 * 60 * 1000; // 同一仓库最多 50 分钟记一个点
-const SNAPSHOT_MAX_POINTS = 150; // 保留约 5 天的高频历史
+const HISTORY_DAILY_DAYS = 45; // 超过 24 小时的样本按天聚合，保留 45 天
+const HISTORY_RECENT_HOURS = 24; // 近 24 小时保留细粒度，才够算 24 小时增量
+const HISTORY_MAX_POINTS = 80; // 硬上限，防止单个仓库体积失控
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * 历史按天聚合：远期每天只留最后一个点，近期保留细粒度。
+ * 不做这层压缩的话，150 个点 × 1400 多个仓库会让快照无限膨胀。
+ */
+function compactHistory(history, now) {
+  const recentFrom = now - HISTORY_RECENT_HOURS * 60 * 60 * 1000;
+  const cutoff = now - HISTORY_DAILY_DAYS * DAY_MS;
+  const recent = [];
+  const byDay = new Map();
+
+  for (const point of history) {
+    if (point.t < cutoff) continue;
+    if (point.t >= recentFrom) {
+      recent.push(point);
+      continue;
+    }
+    // 同一 key 后写覆盖，等价于保留当天最后一个点
+    byDay.set(Math.floor(point.t / DAY_MS), point);
+  }
+
+  const merged = [...byDay.values(), ...recent].sort((a, b) => a.t - b.t);
+  return merged.length > HISTORY_MAX_POINTS ? merged.slice(-HISTORY_MAX_POINTS) : merged;
+}
 
 export function upsertRepo(item, now = Date.now()) {
   const key = item.full_name;
@@ -108,14 +136,12 @@ export function upsertRepo(item, now = Date.now()) {
   const last = rec.history[rec.history.length - 1];
   if (!last || now - last.t >= SNAPSHOT_MIN_GAP) {
     rec.history.push({ t: now, s: rec.stars, f: rec.forks });
-    if (rec.history.length > SNAPSHOT_MAX_POINTS) {
-      rec.history = rec.history.slice(-SNAPSHOT_MAX_POINTS);
-    }
   } else {
     // 同一时间窗口内只更新最新快照的值
     last.s = rec.stars;
     last.f = rec.forks;
   }
+  rec.history = compactHistory(rec.history, now);
 
   return rec;
 }
