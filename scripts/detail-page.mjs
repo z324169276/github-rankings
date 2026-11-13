@@ -97,6 +97,9 @@ export function renderDetailPage({ detail, related = [], siteUrl, langLabel }) {
         .join('')}</ul>`
     : '<div class="empty">暂无同语言推荐</div>';
 
+  // 仓库级分享卡：GitHub 自己为每个仓库生成的 1200×630 预览图，比统一品牌图更能说明内容
+  const ogImage = `https://opengraph.githubassets.com/1/${detail.fullName}`;
+
   const jsonLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'SoftwareSourceCode',
@@ -121,7 +124,13 @@ export function renderDetailPage({ detail, related = [], siteUrl, langLabel }) {
   <meta property="og:title" content="${esc(title)}" />
   <meta property="og:description" content="${esc(description)}" />
   <meta property="og:url" content="${esc(canonical)}" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="GitHub 榜单" />
+  <meta property="og:image" content="${esc(ogImage)}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="${esc(`${detail.fullName} 的 GitHub 仓库卡片`)}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="${esc(ogImage)}" />
   <link rel="alternate" type="application/rss+xml" href="../../feed.xml" title="GitHub 榜单 · 热门榜" />
   <link rel="stylesheet" href="../../detail.css" />
   <script type="application/ld+json">${jsonLd}</script>
