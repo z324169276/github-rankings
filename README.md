@@ -18,6 +18,73 @@
 
 部署在 GitHub Pages：<https://z324169276.github.io/github-rankings/>
 
+## 订阅与数据接口
+
+数据每天定时重新生成，全部公开、无需鉴权。
+
+### RSS
+
+| Feed | 地址 |
+| --- | --- |
+| 热门榜（近 7 天） | `/feed.xml` |
+| 新星榜 | `/feed/new.xml` |
+| 总榜 | `/feed/top.xml` |
+
+### JSON API
+
+| 接口 | 说明 |
+| --- | --- |
+| `/api/v1/index.json` | 元信息：可用榜单、语言键、更新时间 |
+| `/api/v1/trending.json` | 热门榜（全部语言 / 近 7 天） |
+| `/api/v1/new.json` | 新星榜（全部语言） |
+| `/api/v1/top.json` | 总榜（全部语言） |
+| `/api/v1/ranking/{scope}-{languageKey}-{period}.json` | 任意组合 |
+
+- `scope`：`total` / `new` / `trending`
+- `period`：`1d` / `7d` / `30d`，仅 `trending` 生效，其余固定为 `all`
+- `languageKey`：取自 `index.json` 的 `languages`，如 `Python`、`C_plusplus`
+
+响应结构：
+
+```json
+{
+  "scope": "trending",
+  "language": "all",
+  "languageKey": "all",
+  "period": "7d",
+  "generatedAt": 1794489139428,
+  "source": "https://github.com/z324169276/github-rankings",
+  "count": 100,
+  "total": 1028,
+  "estimated": true,
+  "items": [
+    {
+      "rank": 1,
+      "fullName": "deepseek-ai/deepseek-harness",
+      "owner": "deepseek-ai",
+      "name": "deepseek-harness",
+      "description": "DeepSeek Harness: Everything is a Plugin.",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "avatar": "https://avatars.githubusercontent.com/u/148330874?v=4",
+      "language": "TypeScript",
+      "stars": 279542,
+      "forks": 34417,
+      "issues": 0,
+      "topics": ["ai-agents", "cordis", "dsh"],
+      "license": "MIT",
+      "createdAt": "2026-08-13T11:56:32.000Z",
+      "pushedAt": "2026-11-11T11:32:04.000Z",
+      "delta": 21375,
+      "estimated": true
+    }
+  ]
+}
+```
+
+`delta` 只在 `trending` 榜单出现，表示区间 Star 增量。`estimated: true` 表示历史样本不足、该值按日均增速估算；此时不输出 `deltaPct`。
+
+> GitHub Pages 不返回 `Access-Control-Allow-Origin`，浏览器里跨域 `fetch` 会被拦截。脚本、服务端、curl、RSS 阅读器不受影响。
+
 ## 本地运行
 
 需要 Node.js 20 或更高版本。项目零依赖，无需 `npm install`。
