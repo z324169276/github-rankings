@@ -25,6 +25,73 @@ const SCOPES = ['total', 'new', 'trending'];
 const PERIODS = ['1d', '7d', '30d'];
 const MAX_ITEMS = 100;
 
+const SITE_URL = 'https://z324169276.github.io/github-rankings/';
+const REPO_URL = 'https://github.com/z324169276/github-rankings';
+const API_DIR = path.join(DIST, 'api', 'v1');
+
+const escXml = (s = '') =>
+  String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[c]);
+
+/** 对外 API 用稳定的英文字段名，避免内部字段改名影响调用方 */
+function toApiItem(it) {
+  const out = {
+    rank: it.rank,
+    fullName: it.fullName,
+    owner: it.owner,
+    name: it.name,
+    description: it.desc || '',
+    url: it.url,
+    avatar: it.avatar,
+    language: it.language || null,
+    stars: it.stars || 0,
+    forks: it.forks || 0,
+    issues: it.issues || 0,
+    topics: it.topics || [],
+    license: it.license || null,
+    createdAt: it.createdAt ? new Date(it.createdAt).toISOString() : null,
+    pushedAt: it.pushedAt ? new Date(it.pushedAt).toISOString() : null,
+  };
+  if (it.delta != null) {
+    out.delta = it.delta;
+    // 估算值没有可靠基准，不输出涨跌幅，避免误导调用方
+    if (!it.estimated && it.deltaPct != null) out.deltaPct = it.deltaPct;
+    out.estimated = !!it.estimated;
+  }
+  return out;
+}
+
+function buildRss({ file, title, payload }) {
+  const items = payload.items.slice(0, 30);
+  const itemXml = items
+    .map((it) => {
+      const badge = it.delta != null ? `+${it.delta}★ ` : '';
+      const detail = `${SITE_URL}?repo=${encodeURIComponent(it.fullName)}`;
+      const desc = `${it.description || '暂无简介'} · ${it.language || '未知语言'} · ${it.stars}★ / ${it.forks} forks`;
+      return `    <item>
+      <title>${escXml(badge + it.fullName)}</title>
+      <link>${escXml(detail)}</link>
+      <guid isPermaLink="false">${escXml(`${payload.scope}:${it.fullName}`)}</guid>
+      <description>${escXml(desc)}</description>
+      <category>${escXml(it.language || 'Other')}</category>
+    </item>`;
+    })
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${escXml(title)}</title>
+    <link>${escXml(SITE_URL)}</link>
+    <description>${escXml('每日更新的 GitHub 开源趋势榜单')}</description>
+    <language>zh-cn</language>
+    <lastBuildDate>${new Date(payload.generatedAt).toUTCString()}</lastBuildDate>
+    <atom:link href="${escXml(SITE_URL + file)}" rel="self" type="application/rss+xml" />
+${itemXml}
+  </channel>
+</rss>
+`;
+}
+
 /** 语言名转文件名：只保留字母数字，其余折叠为下划线（C++ → C，C# → C，需保证唯一） */
 export function langKey(name) {
   if (name === 'all') return 'all';
@@ -123,7 +190,8 @@ function main() {
     .sort((a, b) => b.stars - a.stars);
   writeJson(path.join(DATA, 'search.json'), index);
 
-  // 榜单：每个 scope × 语言 × 周期一份
+  // 榜单：每个 scope × 语言 × 周期一份，路径即公开 API
+  const generated = new Map();
   let files = 0;
   for (const scope of SCOPES) {
     for (const chip of chips) {
@@ -136,15 +204,66 @@ function main() {
           page: 1,
           pageSize: MAX_ITEMS,
         });
-        writeJson(path.join(DATA, 'ranking', `${scope}-${chip.key}-${period}.json`), {
-          items: result.items,
+        const payload = {
+          scope,
+          language: chip.name,
+          languageKey: chip.key,
+          period,
+          generatedAt: meta.lastRunAt || Date.now(),
+          source: REPO_URL,
+          count: result.items.length,
           total: result.total,
-          estimated: result.estimated,
-          updatedAt: result.updatedAt,
-        });
+          estimated: !!result.estimated,
+          items: result.items.map(toApiItem),
+        };
+        generated.set(`${scope}-${chip.key}-${period}`, payload);
+        writeJson(path.join(API_DIR, 'ranking', `${scope}-${chip.key}-${period}.json`), payload);
         files += 1;
       }
     }
+  }
+
+  // 三个最常用的固定入口，省去拼参数
+  for (const [name, key] of [
+    ['trending', 'trending-all-7d'],
+    ['new', 'new-all-all'],
+    ['top', 'total-all-all'],
+  ]) {
+    const payload = generated.get(key);
+    if (payload) writeJson(path.join(API_DIR, `${name}.json`), payload);
+  }
+
+  writeJson(path.join(API_DIR, 'index.json'), {
+    name: 'GitHub 榜单 API',
+    version: 'v1',
+    generatedAt: meta.lastRunAt || Date.now(),
+    repoCount: repoCount(),
+    source: REPO_URL,
+    site: SITE_URL,
+    scopes: SCOPES,
+    periods: PERIODS,
+    languages: chips.map((c) => ({ name: c.name, key: c.key })),
+    ranking: 'api/v1/ranking/{scope}-{languageKey}-{period}.json',
+    shortcuts: {
+      trending: 'api/v1/trending.json',
+      new: 'api/v1/new.json',
+      top: 'api/v1/top.json',
+    },
+    feeds: ['feed.xml', 'feed/new.xml', 'feed/top.xml'],
+  });
+
+  // RSS：取各榜前 30 条
+  const feeds = [
+    { file: 'feed.xml', title: 'GitHub 榜单 · 热门榜', key: 'trending-all-7d' },
+    { file: 'feed/new.xml', title: 'GitHub 榜单 · 新星榜', key: 'new-all-all' },
+    { file: 'feed/top.xml', title: 'GitHub 榜单 · 总榜', key: 'total-all-all' },
+  ];
+  for (const feed of feeds) {
+    const payload = generated.get(feed.key);
+    if (!payload) continue;
+    const out = path.join(DIST, feed.file);
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, buildRss({ ...feed, payload }), 'utf8');
   }
 
   // 仓库详情：每个仓库一份，按需加载
@@ -158,12 +277,13 @@ function main() {
 
   fs.writeFileSync(
     path.join(DIST, 'robots.txt'),
-    'User-agent: *\nAllow: /\n',
+    `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}\n`,
     'utf8',
   );
 
   console.log(`构建完成 → ${DIST}`);
   console.log(`  仓库 ${repoCount()} 个，榜单 ${files} 份，详情 ${details} 份，语言 ${chips.length} 个`);
+  console.log(`  API  api/v1/   RSS  ${feeds.map((f) => f.file).join(' / ')}`);
 }
 
 main();
