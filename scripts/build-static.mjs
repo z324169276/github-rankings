@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { initStore, getRepos, getMeta, repoCount } from '../server/store.js';
 import { queryRanking, getRepoDetail, getStats } from '../server/ranking.js';
 import { renderDetailPage, detailPagePath } from './detail-page.mjs';
+import { fetchReadmeExcerpt } from './readme-excerpt.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -119,7 +120,7 @@ function copyDir(from, to) {
   }
 }
 
-function main() {
+async function main() {
   initStore();
   if (repoCount() === 0) {
     console.error('data/db.json 为空，请先运行 npm run refresh');
@@ -288,6 +289,25 @@ function main() {
     details += 1;
   }
 
+  // README 摘要：只在有详情页时抓，并发拉取，失败不影响构建
+  const excerpts = new Map();
+  if (process.env.SKIP_README !== '1') {
+    let cursor = 0;
+    let done = 0;
+    const CONCURRENCY = 12;
+    await Promise.all(
+      Array.from({ length: CONCURRENCY }, async () => {
+        while (cursor < detailList.length) {
+          const detail = detailList[cursor++];
+          const excerpt = await fetchReadmeExcerpt(detail.fullName);
+          if (excerpt) excerpts.set(detail.fullName, excerpt);
+          done += 1;
+          if (done % 200 === 0) console.log(`  README 摘要 ${done}/${detailList.length}，命中 ${excerpts.size}`);
+        }
+      }),
+    );
+  }
+
   // 同语言推荐：按 Star 接近程度选，避免每个页面都链到同一个超大型项目
   const byLanguage = new Map();
   for (const d of detailList) {
@@ -307,7 +327,12 @@ function main() {
     fs.mkdirSync(path.dirname(out), { recursive: true });
     fs.writeFileSync(
       out,
-      renderDetailPage({ detail, related, siteUrl: SITE_URL }),
+      renderDetailPage({
+        detail,
+        related,
+        siteUrl: SITE_URL,
+        excerpt: excerpts.get(detail.fullName) || '',
+      }),
       'utf8',
     );
     pages += 1;
@@ -349,7 +374,11 @@ ${urlEntries.join('\n')}
 
   console.log(`构建完成 → ${DIST}`);
   console.log(`  仓库 ${repoCount()} 个，榜单 ${files} 份，详情 JSON ${details} 份，详情页 ${pages} 个，语言 ${chips.length} 个`);
+  console.log(`  README 摘要 ${excerpts.size} 条（SKIP_README=1 可跳过抓取）`);
   console.log(`  API  api/v1/   RSS  ${feeds.map((f) => f.file).join(' / ')}`);
 }
 
-main();
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
