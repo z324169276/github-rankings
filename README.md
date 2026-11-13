@@ -83,7 +83,27 @@
 
 `delta` 只在 `trending` 榜单出现，表示区间 Star 增量。`estimated: true` 表示历史样本不足、该值按日均增速估算；此时不输出 `deltaPct`。
 
-> GitHub Pages 不返回 `Access-Control-Allow-Origin`，浏览器里跨域 `fetch` 会被拦截。脚本、服务端、curl、RSS 阅读器不受影响。
+> GitHub Pages 不返回 `Access-Control-Allow-Origin`，浏览器里跨域 `fetch` 会被拦截。脚本、服务端、curl、RSS 阅读器不受影响；需要在浏览器直连时用下面的 jsDelivr 镜像。
+
+### jsDelivr 镜像（支持跨域）
+
+jsDelivr 会给仓库文件加上 `Access-Control-Allow-Origin: *`。API 产物每天同步到一个强制覆盖的 `data` 分支，因此仓库体积不会随历史累积：
+
+```js
+const res = await fetch('https://cdn.jsdelivr.net/gh/z324169276/github-rankings@data/api/v1/trending.json');
+const { items } = await res.json();
+```
+
+| 文件 | 镜像地址 |
+| --- | --- |
+| 接口索引 | `https://cdn.jsdelivr.net/gh/z324169276/github-rankings@data/api/v1/index.json` |
+| 热门榜 | `.../api/v1/trending.json` |
+| 新星榜 | `.../api/v1/new.json` |
+| 总榜 | `.../api/v1/top.json` |
+| 任意组合 | `.../api/v1/ranking/{scope}-{languageKey}-{period}.json` |
+| RSS | `.../feed.xml`、`.../feed/new.xml`、`.../feed/top.xml` |
+
+`data` 分支每天被重写为单个提交。jsDelivr 对分支地址有约 12 小时缓存，刚更新后可能仍读到上一版。
 
 ## 本地运行
 
