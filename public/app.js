@@ -106,7 +106,7 @@ async function fetchRanking({ scope, lang, period, q, page, pageSize }) {
   } else {
     const key = langKeys[lang] || lang;
     const periodKey = scope === 'trending' ? period : 'all';
-    const payload = await api(`data/ranking/${scope}-${key}-${periodKey}.json`);
+    const payload = await api(`api/v1/ranking/${scope}-${key}-${periodKey}.json`);
     items = payload.items;
     estimated = !!payload.estimated;
     updatedAt = payload.updatedAt || 0;
