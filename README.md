@@ -127,10 +127,14 @@ npm run preview
 
 静态站的数据来自 `data/db.json`，由 GitHub Actions 每天定时执行：
 
-1. `node server/refresh.js` 调用 GitHub Search API 抓取 26 个查询
-2. 写入 Star 快照，形成增量计算所需的历史
-3. `node scripts/build-static.mjs` 导出 `dist/data/*.json`
-4. 提交数据快照并发布到 GitHub Pages
+1. 从 `data` 分支取回上一次的历史快照
+2. `node server/refresh.js` 调用 GitHub Search API 抓取 26 个查询，写入 Star 快照
+3. `node scripts/build-static.mjs` 导出 `dist/api/v1/*.json` 与 RSS
+4. 发布到 GitHub Pages，并把最新快照和 API 产物强制推回 `data` 分支
+
+`data` 分支每次都被覆盖成单个提交，所以仓库体积只取决于单次快照的大小，不会按天累积。历史样本本身也做了压缩：超过 24 小时的记录按天聚合，只保留最近 45 天；近 24 小时保留细粒度，用于计算 24 小时增量。单个仓库最多 80 个采样点。
+
+如果工作流失败，会自动开一个标题形如 `[自动] 榜单数据更新失败 YYYY-MM-DD` 的 issue，站点继续提供上一版数据。
 
 首次部署时历史样本不足，「热门榜」会退化为「按创建以来的日均增速估算」并标注「估算」；随着每日运行，样本积累够 30 个仓库后会自动切换为真实增量。
 
