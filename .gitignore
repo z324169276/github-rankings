@@ -1,0 +1,14 @@
+node_modules/
+dist/
+
+# 本地密钥（含 GitHub Token / DeepSeek Key / 飞书 Webhook）
+config.json
+.env
+.env.*
+
+# 运行时产物
+logs/
+data/readmes/
+*.log
+.DS_Store
+Thumbs.db
