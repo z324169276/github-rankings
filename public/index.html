@@ -17,6 +17,8 @@
   <meta name="twitter:title" content="GitHub 榜单 · 开源趋势追踪" />
   <meta name="twitter:description" content="每日更新的 GitHub 开源榜单：总榜、新星榜、热门榜，支持按语言筛选与 Star 趋势图。" />
   <link rel="preconnect" href="https://avatars.githubusercontent.com" />
+  <link rel="alternate" type="application/rss+xml" title="GitHub 榜单 · 热门榜" href="feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="GitHub 榜单 · 新星榜" href="feed/new.xml" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a84ff'/%3E%3C/svg%3E" />
 </head>
@@ -89,7 +91,12 @@
     <div class="load-more-wrap" id="loadMoreWrap" hidden>
       <button class="btn load-more" id="loadMoreBtn" type="button">加载更多</button>
     </div>
-    <p class="footnote">数据来源 GitHub REST API · 本地缓存于 data/db.json · 未经认证时受官方速率限制</p>
+    <p class="footnote">
+      数据来源 GitHub REST API，每日自动更新 ·
+      <a href="feed.xml">RSS 订阅</a> ·
+      <a href="api/v1/index.json">JSON API</a> ·
+      <a href="https://github.com/z324169276/github-rankings">开源仓库</a>
+    </p>
   </main>
 
   <div class="modal-overlay" id="modalOverlay" hidden>
