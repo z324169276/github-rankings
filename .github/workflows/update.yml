@@ -52,3 +52,24 @@ jobs:
           path: dist
 
       - uses: actions/deploy-pages@v4
+
+      # jsDelivr 会自动给 GitHub 仓库加 CORS 头，但只认仓库里的文件。
+      # 这里把 API 产物推到一个每天强制覆盖的 data 分支，避免历史无限膨胀。
+      - name: 同步 jsDelivr 镜像分支
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          rm -rf "$RUNNER_TEMP/mirror"
+          mkdir -p "$RUNNER_TEMP/mirror"
+          cp -r dist/api "$RUNNER_TEMP/mirror/api"
+          cp -r dist/feed "$RUNNER_TEMP/mirror/feed"
+          cp dist/feed.xml "$RUNNER_TEMP/mirror/feed.xml"
+          cd "$RUNNER_TEMP/mirror"
+          git init -q
+          git checkout -q -b data
+          git add -A
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "data: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data
