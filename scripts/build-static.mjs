@@ -14,6 +14,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { initStore, getRepos, getMeta, repoCount } from '../server/store.js';
 import { queryRanking, getRepoDetail, getStats } from '../server/ranking.js';
+import { renderDetailPage, detailPagePath } from './detail-page.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -276,24 +277,66 @@ function main() {
     fs.writeFileSync(out, buildRss({ ...feed, payload }), 'utf8');
   }
 
-  // 仓库详情：每个仓库一份，按需加载
+  // 仓库详情：JSON 供前端弹窗按需加载，HTML 供搜索引擎收录
+  const detailList = [];
   let details = 0;
   for (const r of repos) {
     const detail = getRepoDetail(r.fullName);
     if (!detail) continue;
     writeJson(path.join(DATA, 'repo', `${r.fullName.replace(/\//g, '__')}.json`), detail);
+    detailList.push(detail);
     details += 1;
   }
 
+  // 同语言推荐：按 Star 接近程度选，避免每个页面都链到同一个超大型项目
+  const byLanguage = new Map();
+  for (const d of detailList) {
+    const lang = d.language || '__none__';
+    if (!byLanguage.has(lang)) byLanguage.set(lang, []);
+    byLanguage.get(lang).push(d);
+  }
+
+  let pages = 0;
+  for (const detail of detailList) {
+    const pool = byLanguage.get(detail.language || '__none__') || [];
+    const related = pool
+      .filter((d) => d.fullName !== detail.fullName)
+      .sort((a, b) => Math.abs(a.stars - detail.stars) - Math.abs(b.stars - detail.stars))
+      .slice(0, 6);
+    const out = path.join(DIST, detailPagePath(detail.fullName));
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(
+      out,
+      renderDetailPage({ detail, related, siteUrl: SITE_URL }),
+      'utf8',
+    );
+    pages += 1;
+  }
+
   const lastmod = new Date(meta.lastRunAt || Date.now()).toISOString().slice(0, 10);
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
+  const urlEntries = [
+    `  <url>
     <loc>${escXml(SITE_URL)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-  </url>
+  </url>`,
+    ...detailList.map((d) => {
+      const loc = `${SITE_URL}${detailPagePath(d.fullName)}`;
+      const lm = Number.isFinite(d.pushedAt)
+        ? new Date(d.pushedAt).toISOString().slice(0, 10)
+        : lastmod;
+      return `  <url>
+    <loc>${escXml(loc)}</loc>
+    <lastmod>${lm}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+    }),
+  ];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlEntries.join('\n')}
 </urlset>
 `;
   fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap, 'utf8');
@@ -305,7 +348,7 @@ function main() {
   );
 
   console.log(`构建完成 → ${DIST}`);
-  console.log(`  仓库 ${repoCount()} 个，榜单 ${files} 份，详情 ${details} 份，语言 ${chips.length} 个`);
+  console.log(`  仓库 ${repoCount()} 个，榜单 ${files} 份，详情 JSON ${details} 份，详情页 ${pages} 个，语言 ${chips.length} 个`);
   console.log(`  API  api/v1/   RSS  ${feeds.map((f) => f.file).join(' / ')}`);
 }
 
