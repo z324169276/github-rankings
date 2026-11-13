@@ -69,18 +69,18 @@ function chart(history) {
       </svg>`;
 }
 
-export function renderDetailPage({ detail, related = [], siteUrl, langLabel }) {
+export function renderDetailPage({ detail, related = [], siteUrl, langLabel, excerpt = '' }) {
   const canonical = `${siteUrl}${detailPagePath(detail.fullName)}`;
   const grow = growth(detail.history);
   const lang = detail.language || langLabel || '未知语言';
   const title = `${detail.fullName} · Star ${fmtNum(detail.stars)} · GitHub 开源榜单`;
   const rawDesc = detail.desc ? detail.desc.trim() : '';
   const shortDesc = rawDesc.length > 100 ? `${rawDesc.slice(0, 100).trimEnd()}…` : rawDesc;
-  const description = (
-    shortDesc
-      ? `${shortDesc}（${detail.fullName}，${lang}，${fmtNum(detail.stars)} Star）`
-      : `${detail.fullName} 的 Star、Fork、活跃度与语言信息。${lang} 项目，${fmtNum(detail.stars)} Star。`
-  ).slice(0, 160);
+  const baseDesc = shortDesc || excerpt;
+  const fullDesc = baseDesc
+    ? `${baseDesc}（${detail.fullName}，${lang}，${fmtNum(detail.stars)} Star）`
+    : `${detail.fullName} 的 Star、Fork、活跃度与语言信息。${lang} 项目，${fmtNum(detail.stars)} Star。`;
+  const description = fullDesc.length > 160 ? `${fullDesc.slice(0, 157).trimEnd()}…` : fullDesc;
 
   const topics = (detail.topics || [])
     .map((t) => `<span class="badge">${esc(t)}</span>`)
@@ -163,6 +163,12 @@ export function renderDetailPage({ detail, related = [], siteUrl, langLabel }) {
       <div class="stat"><div class="value">${fmtNum(detail.issues)}</div><div class="label">Open Issues</div></div>
       <div class="stat"><div class="value${grow ? ' up' : ''}">${grow ? `+${fmtNum(grow.delta)}` : '—'}</div><div class="label">${grow ? `近 ${grow.days} 天 Star` : 'Star 增量'}</div></div>
     </div>
+
+    ${excerpt ? `<section class="card">
+      <h2>README 摘要</h2>
+      <p class="excerpt">${esc(excerpt)}</p>
+      <p class="excerpt-src">截取自仓库 README · <a href="${esc(detail.url)}/blob/HEAD/README.md" rel="noopener">查看原文</a></p>
+    </section>` : ''}
 
     <section class="card chart">
       <h2>Star 增长曲线</h2>
