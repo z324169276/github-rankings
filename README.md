@@ -113,12 +113,14 @@ const { items } = await res.json();
 
 | 地址 | 内容 |
 | --- | --- |
-| `/repo/{owner}/{name}.html` | Star / Fork / Issue、可观测区间增量、Star 曲线（内联 SVG）、许可证、topics、同语言推荐 |
+| `/repo/{owner}/{name}.html` | Star / Fork / Issue、可观测区间增量、Star 曲线（内联 SVG）、README 摘要、许可证、topics、同语言推荐 |
 | `/data/repo/{owner}__{name}.json` | 同一份详情数据，供前端弹窗按需加载 |
 | `/sitemap.xml` | 首页 + 全部详情页 |
 | `/robots.txt` | 允许全站抓取，并指向 `sitemap.xml` |
 
 详情页只使用相对路径，本地 `npm run preview` 与 GitHub Pages 子路径部署都能直接打开。列表卡片打开弹窗后，点「独立页面」即可跳到对应静态页。
+
+README 摘要在构建期抓取：优先 `raw.githubusercontent.com`，失败时退回 jsDelivr，只取文件前 60KB，去掉徽章、代码块、表格与推广行后截取约 320 字；抓不到或开头是赞助商内容时自动省略该卡片，不影响构建。本地网络受限时可用 `SKIP_README=1 npm run build` 跳过抓取。
 
 ## 本地运行
 
@@ -144,7 +146,7 @@ npm run preview
 
 1. 从 `data` 分支取回上一次的历史快照
 2. `node server/refresh.js` 调用 GitHub Search API 抓取 26 个查询，写入 Star 快照
-3. `node scripts/build-static.mjs` 导出 `dist/api/v1/*.json` 与 RSS
+3. `node scripts/build-static.mjs` 导出 `dist/api/v1/*.json`、RSS、详情页与 sitemap
 4. 发布到 GitHub Pages，并把最新快照和 API 产物强制推回 `data` 分支
 
 `data` 分支每次都被覆盖成单个提交，所以仓库体积只取决于单次快照的大小，不会按天累积。历史样本本身也做了压缩：超过 24 小时的记录按天聚合，只保留最近 45 天；近 24 小时保留细粒度，用于计算 24 小时增量。单个仓库最多 80 个采样点。
@@ -193,6 +195,7 @@ GitHub 官方没有公开 trending 接口，本项目用 Search API 构造：
 ├─ scripts/
 │  ├─ build-static.mjs   导出静态站（API / RSS / 详情页 / sitemap）
 │  ├─ detail-page.mjs    仓库详情页渲染（纯 HTML + 内联 SVG）
+│  ├─ readme-excerpt.mjs 构建期抓取 README 并压成摘要
 │  ├─ og-card.html       分享卡源文件（headless 浏览器截成 public/og.png）
 │  └─ serve-static.mjs   本地预览 dist/
 ├─ public/               前端页面
