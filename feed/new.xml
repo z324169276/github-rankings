@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub 榜单 · 新星榜</title>
+    <link>https://z324169276.github.io/github-rankings/</link>
+    <description>每日更新的 GitHub 开源趋势榜单</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 14 Nov 2026 07:38:09 GMT</lastBuildDate>
+    <atom:link href="https://z324169276.github.io/github-rankings/feed/new.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>storytold/photocraft</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=storytold%2Fphotocraft</link>
+      <guid isPermaLink="false">new:storytold/photocraft</guid>
+      <description>PhotoCraft: An open-source photo editor written from scratch in pure Rust · Rust · 79247★ / 14006 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>eternity4719/HowToLiveBetter</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=eternity4719%2FHowToLiveBetter</link>
+      <guid isPermaLink="false">new:eternity4719/HowToLiveBetter</guid>
+      <description>高性价比人生指南: 长寿防病、急救、省钱理财、法律红线、失业与工伤、医保社保、恋爱婚育、怀孕育儿、创业与做平台合规、出国与技能。每条写明成本、收益、证据等级和原始出处，只引期刊论文与官方文件。 · HTML · 75649★ / 6703 forks</description>
+      <category>HTML</category>
+    </item>
+    <item>
+      <title>Ebony-Vinyl/dsh-our-free-model</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=Ebony-Vinyl%2Fdsh-our-free-model</link>
+      <guid isPermaLink="false">new:Ebony-Vinyl/dsh-our-free-model</guid>
+      <description>在 dsh 里装上这个插件即可，无需登录、注册或填 API Key，就能使用包括 DeepSeek V4.1 Flash、Kimi K3 在内的前沿模型——完全免费，不限量。 All you do is install this plugin in dsh: no login, no sign-up, no API key — the frontier models are just there, DeepSeek V4.1 Flash and Kimi K3 among them. Completely free, with no usage cap. · JavaScript · 73251★ / 2028 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>Gathin23/cleanyourtv</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=Gathin23%2Fcleanyourtv</link>
+      <guid isPermaLink="false">new:Gathin23/cleanyourtv</guid>
+      <description>Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home. · Python · 57533★ / 7444 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>Niko1221/Strata</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=Niko1221%2FStrata</link>
+      <guid isPermaLink="false">new:Niko1221/Strata</guid>
+      <description>Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input. · C++ · 43981★ / 4830 forks</description>
+      <category>C++</category>
+    </item>
+    <item>
+      <title>yetone/magpie</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=yetone%2Fmagpie</link>
+      <guid isPermaLink="false">new:yetone/magpie</guid>
+      <description>Every agent&apos;s model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar. · Go · 36267★ / 3242 forks</description>
+      <category>Go</category>
+    </item>
+    <item>
+      <title>NandhaKishorM/laya</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=NandhaKishorM%2Flaya</link>
+      <guid isPermaLink="false">new:NandhaKishorM/laya</guid>
+      <description>Non-autoregressive System 1 decision engine. Typed choice, score and yes/no decisions over any text in a single forward pass, in 100+ languages, with a router that picks the right checkpoint per request. · Python · 35516★ / 3187 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>storytold/craft-anything</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=storytold%2Fcraft-anything</link>
+      <guid isPermaLink="false">new:storytold/craft-anything</guid>
+      <description>Craft Anything: understand how any software works, and craft your own. · Rust · 31726★ / 6501 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>wheresryan22/anatomy</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=wheresryan22%2Fanatomy</link>
+      <guid isPermaLink="false">new:wheresryan22/anatomy</guid>
+      <description>An agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems. Generates polished SVGs with optional WebGL shaders and 3D effects. · JavaScript · 27179★ / 2298 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>KnifeLemon/Filee</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=KnifeLemon%2FFilee</link>
+      <guid isPermaLink="false">new:KnifeLemon/Filee</guid>
+      <description>Free, open-source file converter. Convert 263 formats offline by drag &amp; drop — images, PDF, Word, Excel, PowerPoint, HWP/HWPX, video, audio, e-books and archives. No upload, no Office needed. · C# · 26893★ / 1545 forks</description>
+      <category>C#</category>
+    </item>
+    <item>
+      <title>deepseek-ai/DeepInfer</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=deepseek-ai%2FDeepInfer</link>
+      <guid isPermaLink="false">new:deepseek-ai/DeepInfer</guid>
+      <description>DeepInfer: High-performance, large-scale inference framework for DeepSeek models · Python · 25987★ / 3187 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>browser-use/jev-ultrafast</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=browser-use%2Fjev-ultrafast</link>
+      <guid isPermaLink="false">new:browser-use/jev-ultrafast</guid>
+      <description>Fastest and cheapest web agent · Python · 24490★ / 1887 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>google-research/harness2</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=google-research%2Fharness2</link>
+      <guid isPermaLink="false">new:google-research/harness2</guid>
+      <description>暂无简介 · Python · 23798★ / 2387 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>deepseek-ai/dsh-superagent-prototype</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=deepseek-ai%2Fdsh-superagent-prototype</link>
+      <guid isPermaLink="false">new:deepseek-ai/dsh-superagent-prototype</guid>
+      <description>Towards a More Autonomous Agent System · TypeScript · 23061★ / 2812 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>ccch1mneyyy/dsh-Go</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=ccch1mneyyy%2Fdsh-Go</link>
+      <guid isPermaLink="false">new:ccch1mneyyy/dsh-Go</guid>
+      <description>dsh-go — DeepSeek Harness 装进口袋：手机本机运行，也能遥控你的电脑。 · Dart · 22096★ / 1024 forks</description>
+      <category>Dart</category>
+    </item>
+    <item>
+      <title>storytold/pdfcraft</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=storytold%2Fpdfcraft</link>
+      <guid isPermaLink="false">new:storytold/pdfcraft</guid>
+      <description>PdfCraft: An open-source PDF reader and editor written from scratch in pure Rust · Rust · 20646★ / 7559 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>Droid-Deck/DroidDeck</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=Droid-Deck%2FDroidDeck</link>
+      <guid isPermaLink="false">new:Droid-Deck/DroidDeck</guid>
+      <description>DroidDeck brings the SteamOS experience to Android · Kotlin · 19991★ / 1014 forks</description>
+      <category>Kotlin</category>
+    </item>
+    <item>
+      <title>Zagitta/gpu-unlock</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=Zagitta%2Fgpu-unlock</link>
+      <guid isPermaLink="false">new:Zagitta/gpu-unlock</guid>
+      <description>Your GeForce runs AI at half speed. This fixes it for 20/30/40 series cards. Up to 2× FP16 / BF16 / TF32 tensor throughput · C · 19288★ / 1988 forks</description>
+      <category>C</category>
+    </item>
+    <item>
+      <title>google/elephant-goldfish-model</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=google%2Felephant-goldfish-model</link>
+      <guid isPermaLink="false">new:google/elephant-goldfish-model</guid>
+      <description>Open-source plugin for designing and reviewing software with agents · Python · 18742★ / 1399 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>robbietilton/Compositor</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=robbietilton%2FCompositor</link>
+      <guid isPermaLink="false">new:robbietilton/Compositor</guid>
+      <description>The Photoshop alternative for Mac · Swift · 18658★ / 1858 forks</description>
+      <category>Swift</category>
+    </item>
+    <item>
+      <title>storytold/filmcraft</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=storytold%2Ffilmcraft</link>
+      <guid isPermaLink="false">new:storytold/filmcraft</guid>
+      <description>FilmCraft: An open-source, nonlinear video editor written from scratch in pure Rust · Rust · 18232★ / 7425 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>storytold/wordcraft</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=storytold%2Fwordcraft</link>
+      <guid isPermaLink="false">new:storytold/wordcraft</guid>
+      <description>WordCraft: an open-source, clean-room word processor in pure Rust · Rust · 17982★ / 4968 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>openai/math</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=openai%2Fmath</link>
+      <guid isPermaLink="false">new:openai/math</guid>
+      <description>暂无简介 · Lean · 17525★ / 1988 forks</description>
+      <category>Lean</category>
+    </item>
+    <item>
+      <title>jub0t/Concat</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=jub0t%2FConcat</link>
+      <guid isPermaLink="false">new:jub0t/Concat</guid>
+      <description>Beta: The truly free, open-source, local-first, cross-platform video editor. Scriptable through a JSON-RPC API &amp; MCP. · Rust · 17440★ / 2144 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>tangency-labs/solidcraft</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=tangency-labs%2Fsolidcraft</link>
+      <guid isPermaLink="false">new:tangency-labs/solidcraft</guid>
+      <description>SolidCraft: an open-source parametric 3D CAD application built in pure Rust. Desktop, web, and automation through MCP. · Rust · 16185★ / 2219 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>storytold/lightcraft</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=storytold%2Flightcraft</link>
+      <guid isPermaLink="false">new:storytold/lightcraft</guid>
+      <description>LightCraft: An open-source non-destructive photo editor written from scratch in pure Rust · Rust · 15952★ / 6083 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>lemomo-ai/lemo-opuscar</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=lemomo-ai%2Flemo-opuscar</link>
+      <guid isPermaLink="false">new:lemomo-ai/lemo-opuscar</guid>
+      <description>A toolbox of film styles made in code for Claude Code: 99 ready to use, and your own. Each style is a style prompt plus a demo film made entirely in code by Claude Opus 5.5, with no video model. By Lemomo. · 一套用代码做片的风格工具箱：99 种现成风格，也能做出你自己的 · JavaScript · 15806★ / 1959 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>heydamir/unslop</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=heydamir%2Funslop</link>
+      <guid isPermaLink="false">new:heydamir/unslop</guid>
+      <description>A Claude skill that turns vibecoded, AI-looking UI into a designed interface · JavaScript · 15775★ / 914 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>seedds/nxnative</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=seedds%2Fnxnative</link>
+      <guid isPermaLink="false">new:seedds/nxnative</guid>
+      <description>Switch games running natively on iPhone, iPad and Mac: an NSP folder becomes an unsigned IPA (NSO rewriter, Horizon HLE host, NVN→Metal) · Python · 15364★ / 2771 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>yihui-dev/awesome-opus5-5-videos</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=yihui-dev%2Fawesome-opus5-5-videos</link>
+      <guid isPermaLink="false">new:yihui-dev/awesome-opus5-5-videos</guid>
+      <description>A growing collection of viral videos made with Claude Opus 5.5 and the prompts behind them. Watch each original next to a live remake on Skillry. Updated regularly. · 未知语言 · 15162★ / 1603 forks</description>
+      <category>Other</category>
+    </item>
+  </channel>
+</rss>

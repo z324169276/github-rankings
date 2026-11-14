@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub 榜单 · 总榜</title>
+    <link>https://z324169276.github.io/github-rankings/</link>
+    <description>每日更新的 GitHub 开源趋势榜单</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 14 Nov 2026 07:38:09 GMT</lastBuildDate>
+    <atom:link href="https://z324169276.github.io/github-rankings/feed/top.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>codecrafters-io/build-your-own-x</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=codecrafters-io%2Fbuild-your-own-x</link>
+      <guid isPermaLink="false">total:codecrafters-io/build-your-own-x</guid>
+      <description>Master programming by recreating your favorite technologies from scratch. · Markdown · 562397★ / 52636 forks</description>
+      <category>Markdown</category>
+    </item>
+    <item>
+      <title>sindresorhus/awesome</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=sindresorhus%2Fawesome</link>
+      <guid isPermaLink="false">total:sindresorhus/awesome</guid>
+      <description>😎 Awesome lists about all kinds of interesting topics [NOTE: Pull requests are temporarily disabled until I have a chance to catch up with the existing ones] · 未知语言 · 536569★ / 38396 forks</description>
+      <category>Other</category>
+    </item>
+    <item>
+      <title>public-apis/public-apis</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=public-apis%2Fpublic-apis</link>
+      <guid isPermaLink="false">total:public-apis/public-apis</guid>
+      <description>A collective list of free APIs · Python · 498854★ / 55878 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>freeCodeCamp/freeCodeCamp</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=freeCodeCamp%2FfreeCodeCamp</link>
+      <guid isPermaLink="false">total:freeCodeCamp/freeCodeCamp</guid>
+      <description>freeCodeCamp.org&apos;s open-source codebase and curriculum. Learn math, programming, and computer science for free. · TypeScript · 459110★ / 47474 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>morluto/rea</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=morluto%2Frea</link>
+      <guid isPermaLink="false">total:morluto/rea</guid>
+      <description>Reverse engineer anything with agents, from app behavior down to native binaries. · TypeScript · 458240★ / 112403 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>EbookFoundation/free-programming-books</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=EbookFoundation%2Ffree-programming-books</link>
+      <guid isPermaLink="false">total:EbookFoundation/free-programming-books</guid>
+      <description>:books: Freely available programming books · Python · 401564★ / 67833 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>openclaw/openclaw</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=openclaw%2Fopenclaw</link>
+      <guid isPermaLink="false">total:openclaw/openclaw</guid>
+      <description>The AI that really does things. Any OS. Any Platform. The lobster way. 🦞  · TypeScript · 394411★ / 82893 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>donnemartin/system-design-primer</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=donnemartin%2Fsystem-design-primer</link>
+      <guid isPermaLink="false">total:donnemartin/system-design-primer</guid>
+      <description>Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards. · Python · 377827★ / 59277 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>nilbuild/developer-roadmap</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=nilbuild%2Fdeveloper-roadmap</link>
+      <guid isPermaLink="false">total:nilbuild/developer-roadmap</guid>
+      <description>Interactive roadmaps, guides and other educational content to help developers grow in their careers. · TypeScript · 371975★ / 46352 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>jwasham/coding-interview-university</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=jwasham%2Fcoding-interview-university</link>
+      <guid isPermaLink="false">total:jwasham/coding-interview-university</guid>
+      <description>A complete computer science study plan to become a software engineer. · 未知语言 · 364361★ / 85888 forks</description>
+      <category>Other</category>
+    </item>
+    <item>
+      <title>awesome-selfhosted/awesome-selfhosted</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=awesome-selfhosted%2Fawesome-selfhosted</link>
+      <guid isPermaLink="false">total:awesome-selfhosted/awesome-selfhosted</guid>
+      <description>A list of Free Software network services and web applications which can be hosted on your own servers · 未知语言 · 336853★ / 15830 forks</description>
+      <category>Other</category>
+    </item>
+    <item>
+      <title>vinta/awesome-python</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=vinta%2Fawesome-python</link>
+      <guid isPermaLink="false">total:vinta/awesome-python</guid>
+      <description>The definitive list that answers &quot;I want to do X in Python, which tool should I use?&quot; · Python · 334622★ / 29099 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>mattpocock/skills</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=mattpocock%2Fskills</link>
+      <guid isPermaLink="false">total:mattpocock/skills</guid>
+      <description>Skills for Real Engineers. Straight from my .agents directory. · Shell · 323986★ / 27195 forks</description>
+      <category>Shell</category>
+    </item>
+    <item>
+      <title>obra/superpowers</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=obra%2Fsuperpowers</link>
+      <guid isPermaLink="false">total:obra/superpowers</guid>
+      <description>An agentic skills framework &amp; software development methodology that works. · Shell · 317339★ / 28262 forks</description>
+      <category>Shell</category>
+    </item>
+    <item>
+      <title>affaan-m/ECC</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=affaan-m%2FECC</link>
+      <guid isPermaLink="false">total:affaan-m/ECC</guid>
+      <description>The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond. · JavaScript · 302568★ / 44636 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>practical-tutorials/project-based-learning</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=practical-tutorials%2Fproject-based-learning</link>
+      <guid isPermaLink="false">total:practical-tutorials/project-based-learning</guid>
+      <description>Curated list of project-based tutorials · Python · 289698★ / 36839 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>deepseek-ai/deepseek-harness</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=deepseek-ai%2Fdeepseek-harness</link>
+      <guid isPermaLink="false">total:deepseek-ai/deepseek-harness</guid>
+      <description>DeepSeek Harness: Everything is a Plugin. · TypeScript · 280726★ / 34637 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>996icu/996.ICU</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=996icu%2F996.ICU</link>
+      <guid isPermaLink="false">total:996icu/996.ICU</guid>
+      <description>Repo for counting stars and contributing. Press F to pay respect to glorious developers. · 未知语言 · 277224★ / 20658 forks</description>
+      <category>Other</category>
+    </item>
+    <item>
+      <title>NousResearch/hermes-agent</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=NousResearch%2Fhermes-agent</link>
+      <guid isPermaLink="false">total:NousResearch/hermes-agent</guid>
+      <description>The agent that grows with you · Python · 263271★ / 59311 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>trimstray/the-book-of-secret-knowledge</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=trimstray%2Fthe-book-of-secret-knowledge</link>
+      <guid isPermaLink="false">total:trimstray/the-book-of-secret-knowledge</guid>
+      <description>A collection of inspiring lists, manuals, cheatsheets, blogs, hacks, one-liners, cli/web tools and more. · 未知语言 · 258359★ / 14868 forks</description>
+      <category>Other</category>
+    </item>
+    <item>
+      <title>torvalds/linux</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=torvalds%2Flinux</link>
+      <guid isPermaLink="false">total:torvalds/linux</guid>
+      <description>Linux kernel source tree · C · 255612★ / 67326 forks</description>
+      <category>C</category>
+    </item>
+    <item>
+      <title>react/react</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=react%2Freact</link>
+      <guid isPermaLink="false">total:react/react</guid>
+      <description>The library for web and native user interfaces. · JavaScript · 252594★ / 52683 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>multica-ai/andrej-karpathy-skills</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=multica-ai%2Fandrej-karpathy-skills</link>
+      <guid isPermaLink="false">total:multica-ai/andrej-karpathy-skills</guid>
+      <description>A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy&apos;s observations on LLM coding pitfalls. · 未知语言 · 232955★ / 23155 forks</description>
+      <category>Other</category>
+    </item>
+    <item>
+      <title>anomalyco/opencode</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=anomalyco%2Fopencode</link>
+      <guid isPermaLink="false">total:anomalyco/opencode</guid>
+      <description>The open source coding agent. · TypeScript · 226732★ / 30709 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>TheAlgorithms/Python</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=TheAlgorithms%2FPython</link>
+      <guid isPermaLink="false">total:TheAlgorithms/Python</guid>
+      <description>All Algorithms implemented in Python · Python · 226095★ / 51327 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>vuejs/vue</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=vuejs%2Fvue</link>
+      <guid isPermaLink="false">total:vuejs/vue</guid>
+      <description>This is the repo for Vue 2. For Vue 3, go to https://github.com/vuejs/core · TypeScript · 212523★ / 34370 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>ossu/computer-science</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=ossu%2Fcomputer-science</link>
+      <guid isPermaLink="false">total:ossu/computer-science</guid>
+      <description>🎓 Path to a free self-taught education in Computer Science! · HTML · 211069★ / 26133 forks</description>
+      <category>HTML</category>
+    </item>
+    <item>
+      <title>n8n-io/n8n</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=n8n-io%2Fn8n</link>
+      <guid isPermaLink="false">total:n8n-io/n8n</guid>
+      <description>Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations. · TypeScript · 210436★ / 61494 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>DigitalPlatDev/FreeDomain</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=DigitalPlatDev%2FFreeDomain</link>
+      <guid isPermaLink="false">total:DigitalPlatDev/FreeDomain</guid>
+      <description>Free domain registration and practical DNS learning resources for everyone. · Markdown · 208107★ / 4689 forks</description>
+      <category>Markdown</category>
+    </item>
+    <item>
+      <title>yt-dlp/yt-dlp</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=yt-dlp%2Fyt-dlp</link>
+      <guid isPermaLink="false">total:yt-dlp/yt-dlp</guid>
+      <description>A feature-rich command-line audio/video downloader · Python · 207661★ / 18294 forks</description>
+      <category>Python</category>
+    </item>
+  </channel>
+</rss>
