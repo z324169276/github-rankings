@@ -16,6 +16,7 @@ import { initStore, getRepos, getMeta, repoCount } from '../server/store.js';
 import { queryRanking, getRepoDetail, getStats } from '../server/ranking.js';
 import { renderDetailPage, detailPagePath } from './detail-page.mjs';
 import { fetchReadmeExcerpt, excerptSources } from './readme-excerpt.mjs';
+import { buildReports } from './build-reports.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -142,6 +143,9 @@ async function main() {
     process.exit(1);
   }
   fs.writeFileSync(indexPath, injected, 'utf8');
+
+  // 往期榜单：把 reports/*.md 渲染成静态页面
+  buildReports(DIST);
 
   // 商业化雷达数据：由 scripts/build-radar.mjs 生成，存在则一并发布
   const radarSrc = path.join(ROOT, 'data', 'radar.json');
@@ -360,6 +364,16 @@ async function main() {
       ? [
           `  <url>
     <loc>${escXml(SITE_URL + 'radar.html')}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+        ]
+      : []),
+    ...(fs.existsSync(path.join(DIST, 'reports.html'))
+      ? [
+          `  <url>
+    <loc>${escXml(SITE_URL + 'reports.html')}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
