@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { initStore, getRepos, getMeta, repoCount } from '../server/store.js';
 import { queryRanking, getRepoDetail, getStats } from '../server/ranking.js';
 import { renderDetailPage, detailPagePath } from './detail-page.mjs';
-import { fetchReadmeExcerpt } from './readme-excerpt.mjs';
+import { fetchReadmeExcerpt, excerptSources } from './readme-excerpt.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -294,7 +294,7 @@ async function main() {
   if (process.env.SKIP_README !== '1') {
     let cursor = 0;
     let done = 0;
-    const CONCURRENCY = 12;
+    const CONCURRENCY = 8;
     await Promise.all(
       Array.from({ length: CONCURRENCY }, async () => {
         while (cursor < detailList.length) {
@@ -374,7 +374,9 @@ ${urlEntries.join('\n')}
 
   console.log(`构建完成 → ${DIST}`);
   console.log(`  仓库 ${repoCount()} 个，榜单 ${files} 份，详情 JSON ${details} 份，详情页 ${pages} 个，语言 ${chips.length} 个`);
-  console.log(`  README 摘要 ${excerpts.size} 条（SKIP_README=1 可跳过抓取）`);
+  const src = excerptSources();
+  const down = src.down.length ? `，不可达: ${src.down.join(' / ')}` : '';
+  console.log(`  README 摘要 ${excerpts.size} 条（raw ${src.raw} / mirror ${src.mirror} / api ${src.api}${down}，SKIP_README=1 可跳过）`);
   console.log(`  API  api/v1/   RSS  ${feeds.map((f) => f.file).join(' / ')}`);
 }
 
