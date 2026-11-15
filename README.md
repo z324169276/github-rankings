@@ -120,7 +120,7 @@ const { items } = await res.json();
 
 详情页只使用相对路径，本地 `npm run preview` 与 GitHub Pages 子路径部署都能直接打开。列表卡片打开弹窗后，点「独立页面」即可跳到对应静态页。
 
-README 摘要在构建期抓取：优先 `raw.githubusercontent.com`，失败时退回 jsDelivr，只取文件前 60KB，去掉徽章、代码块、表格与推广行后截取约 320 字；抓不到或开头是赞助商内容时自动省略该卡片，不影响构建。本地网络受限时可用 `SKIP_README=1 npm run build` 跳过抓取。
+README 摘要在构建期抓取，数据源依次尝试：`raw.githubusercontent.com` → jsDelivr 镜像 → `api.github.com` 的 `/readme` 端点（读 `GITHUB_TOKEN` 环境变量或 `config.json` 的 token，按 150ms 间隔节流）。raw 被墙的本地网络也能靠 API 抓全；某源连续 5 次网络失败会自动熔断跳过。只取文件前 60KB，去掉徽章、代码块、表格与推广行后截取约 320 字；抓不到或开头是赞助商内容时自动省略该卡片，不影响构建。本地快速构建可用 `SKIP_README=1 npm run build` 跳过抓取。
 
 ## 本地运行
 
