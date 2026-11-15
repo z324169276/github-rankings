@@ -44,6 +44,8 @@ jobs:
         run: node server/refresh.js
 
       - name: 构建静态站
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/build-static.mjs
 
       - uses: actions/configure-pages@v5
