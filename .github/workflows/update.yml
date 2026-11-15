@@ -5,6 +5,15 @@ on:
     # 每天 01:17 UTC（北京时间 09:17）
     - cron: '17 1 * * *'
   workflow_dispatch:
+  # 代码变更也触发构建，避免改了页面却要等定时任务才生效
+  push:
+    branches: [main]
+    paths:
+      - 'public/**'
+      - 'scripts/**'
+      - 'server/**'
+      - 'package.json'
+      - '.github/workflows/**'
 
 permissions:
   contents: write
@@ -46,7 +55,9 @@ jobs:
       - name: 构建静态站
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/build-static.mjs
+        run: |
+          node scripts/build-radar.mjs
+          node scripts/build-static.mjs
 
       - uses: actions/configure-pages@v5
 

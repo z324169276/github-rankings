@@ -8,7 +8,8 @@
   "scripts": {
     "start": "node server/index.js",
     "refresh": "node server/refresh.js",
-    "build": "node scripts/build-static.mjs",
+    "build": "node scripts/build-radar.mjs && node scripts/build-static.mjs",
+    "radar": "node scripts/build-radar.mjs",
     "preview": "node scripts/serve-static.mjs"
   },
   "engines": {

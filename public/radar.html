@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>商业化雷达 · 个人能接住的开源项目</title>
+  <meta name="description" content="从 GitHub 热门仓库中筛出适合个人二次开发与变现的项目，按许可证、活跃度、体量、合规四道筛子过滤，并给出切入点和收钱方式。" />
+  <meta name="keywords" content="GitHub,开源项目,独立开发,二次开发,商业化,变现,个人项目" />
+  <meta name="author" content="z324169276" />
+  <meta name="theme-color" content="#0a84ff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GitHub 榜单" />
+  <meta property="og:title" content="商业化雷达 · 个人能接住的开源项目" />
+  <meta property="og:description" content="1456 个热门仓库，筛出个人真能二次开发并收钱的项目，附切入点和定价参考。" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:image" content="https://z324169276.github.io/github-rankings/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="radar.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a84ff'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01L12 2z"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>GitHub 榜单</h1>
+        <p>商业化雷达</p>
+      </div>
+    </a>
+    <div class="top-actions">
+      <a class="btn ghost" href="index.html">趋势榜</a>
+      <button class="btn icon" id="themeBtn" type="button" title="切换主题">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Indie-friendly Open Source Radar</p>
+      <h2>一个人<em>接得住</em>的项目，才有商业价值</h2>
+      <p class="hero-desc">
+        从收录的热门仓库里，按可商用许可证、半年内活跃、体量适中、无合规风险四道筛子过滤，
+        再人工挑出真正能二次开发的。每个都写了切入点和收钱方式。
+      </p>
+      <div class="stats" id="stats">
+        <div class="stat"><span class="stat-value" id="statRepos">—</span><span class="stat-label">收录仓库</span></div>
+        <div class="stat"><span class="stat-value" id="statEligible">—</span><span class="stat-label">通过筛选</span></div>
+        <div class="stat"><span class="stat-value" id="statFeatured">—</span><span class="stat-label">人工精选</span></div>
+        <div class="stat"><span class="stat-value" id="statUpdated">—</span><span class="stat-label">数据更新</span></div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="segmented" id="trackTabs" role="tablist"></div>
+      <div class="right-controls">
+        <label class="search">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="searchInput" type="search" placeholder="搜索项目 / 描述 / 标签" autocomplete="off" />
+        </label>
+      </div>
+    </section>
+
+    <div class="notice" id="notice" hidden></div>
+
+    <section class="featured-grid" id="featuredGrid"></section>
+
+    <section class="candidates">
+      <div class="candidates-head">
+        <h3>更多候选</h3>
+        <p>同样通过四道筛子，尚未人工写切入点，按综合评分排序</p>
+      </div>
+      <div class="table-wrap">
+        <table class="rank-table" id="candidateTable">
+          <thead>
+            <tr>
+              <th class="col-rank">#</th>
+              <th>项目</th>
+              <th class="col-num">星标</th>
+              <th class="col-num">fork</th>
+              <th class="col-lic">许可证</th>
+              <th class="col-lang">语言</th>
+              <th class="col-num">评分</th>
+            </tr>
+          </thead>
+          <tbody id="candidateBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="method">
+      <h3>筛选口径</h3>
+      <ul>
+        <li><b>许可证</b>　MIT / Apache-2.0 / BSD / ISC 等宽松许可，可商用、可闭源二次开发</li>
+        <li><b>活跃度</b>　180 天内有推送，排除已归档项目</li>
+        <li><b>体量</b>　1000 星以上；超过 4 万星降权，个人难以吃透</li>
+        <li><b>排除项</b>　纯资料合集，以及破解、越狱、绕过授权类项目</li>
+        <li><b>评分</b>　许可证 20 + 活跃 20 + 体量 20 + 产品成熟度 20 + 个人可行性 20</li>
+      </ul>
+      <p class="method-note">
+        星标与 fork 为公开数据快照，会随时间变化。二次开发前请自行核对许可证条款、第三方依赖授权与目标行业资质要求。
+      </p>
+    </section>
+
+    <p class="footnote">
+      数据来自 GitHub 公开 API ·
+      <a href="index.html">趋势榜</a> ·
+      <a href="data/radar.json">原始数据 JSON</a> ·
+      <a href="https://github.com/z324169276/github-rankings">开源仓库</a>
+    </p>
+  </main>
+
+  <script src="radar.js" type="module"></script>
+</body>
+</html>

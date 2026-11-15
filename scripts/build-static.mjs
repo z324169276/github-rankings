@@ -143,6 +143,16 @@ async function main() {
   }
   fs.writeFileSync(indexPath, injected, 'utf8');
 
+  // 商业化雷达数据：由 scripts/build-radar.mjs 生成，存在则一并发布
+  const radarSrc = path.join(ROOT, 'data', 'radar.json');
+  const hasRadar = fs.existsSync(radarSrc);
+  if (hasRadar) {
+    fs.mkdirSync(DATA, { recursive: true });
+    fs.copyFileSync(radarSrc, path.join(DATA, 'radar.json'));
+  } else {
+    console.warn('⚠ 未找到 data/radar.json，radar.html 将无法加载数据（先运行 node scripts/build-radar.mjs）');
+  }
+
   const meta = getMeta();
   const stats = getStats();
 
@@ -346,6 +356,16 @@ async function main() {
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>`,
+    ...(hasRadar
+      ? [
+          `  <url>
+    <loc>${escXml(SITE_URL + 'radar.html')}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+        ]
+      : []),
     ...detailList.map((d) => {
       const loc = `${SITE_URL}${detailPagePath(d.fullName)}`;
       const lm = Number.isFinite(d.pushedAt)
@@ -378,6 +398,7 @@ ${urlEntries.join('\n')}
   const down = src.down.length ? `，不可达: ${src.down.join(' / ')}` : '';
   console.log(`  README 摘要 ${excerpts.size} 条（raw ${src.raw} / mirror ${src.mirror} / api ${src.api}${down}，SKIP_README=1 可跳过）`);
   console.log(`  API  api/v1/   RSS  ${feeds.map((f) => f.file).join(' / ')}`);
+  console.log(`  商业化雷达  ${hasRadar ? '已发布 radar.html' : '未生成 data/radar.json，已跳过'}`);
 }
 
 main().catch((err) => {
