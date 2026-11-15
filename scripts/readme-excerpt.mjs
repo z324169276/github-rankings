@@ -198,12 +198,13 @@ async function request(url, headers, timeout, options = {}) {
     });
     return {
       status: res.status,
+      ok: res.ok,
       text: res.ok ? (await res.text()).slice(0, MAX_SOURCE) : '',
       rateRemaining: Number(res.headers.get('x-ratelimit-remaining') ?? '1'),
       retryAfter: Number(res.headers.get('retry-after') ?? '0'),
     };
   } catch {
-    return { status: 0, text: '', rateRemaining: 1, retryAfter: 0 };
+    return { status: 0, ok: false, text: '', rateRemaining: 1, retryAfter: 0 };
   } finally {
     clearTimeout(timer);
   }
