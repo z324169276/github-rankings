@@ -237,7 +237,12 @@ ${html}
     return { slug, title, excerpt, html, date };
   });
 
-  items.sort((a, b) => (b.date || '').localeCompare(a.date || '') || a.title.localeCompare(b.title));
+  items.sort((a, b) => {
+    const byDate = (b.date || '').localeCompare(a.date || '');
+    if (byDate !== 0) return byDate;
+    // 同期按文件名倒序，让新一期排在前面（用码点比较，避免拼音排序打乱）
+    return a.slug < b.slug ? 1 : a.slug > b.slug ? -1 : 0;
+  });
 
   const cards = items
     .map(
