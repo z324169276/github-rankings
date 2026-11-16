@@ -1,4 +1,4 @@
-/* 项目总表：读取 data/projects.json，按四个维度筛选 */
+/* 项目总表：读取 data/projects.json，按五个维度筛选 */
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -11,11 +11,12 @@ const ISSUE_PAGES = {
 
 const LEVELS = ['一星', '二星', '三星', '四星'];
 const BUDGETS = ['千元级', '万元级', '十万级', '百万级'];
+const LICENSE_MODES = ['可做产品', '只能做服务', '需核对'];
 const LEVEL_NUM = Object.fromEntries(LEVELS.map((l, i) => [l, i + 1]));
 const BUDGET_NUM = Object.fromEntries(BUDGETS.map((b, i) => [b, i + 1]));
 
 let DATA = [];
-let state = { issue: 'all', level: 'all', budget: 'all', track: 'all', kw: '', sort: 'stars' };
+let state = { issue: 'all', level: 'all', budget: 'all', licenseMode: 'all', track: 'all', kw: '', sort: 'stars' };
 
 const esc = (s = '') =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -77,6 +78,7 @@ function filterItems() {
     if (state.issue !== 'all' && String(d.issue) !== state.issue) return false;
     if (state.level !== 'all' && d.level !== state.level) return false;
     if (state.budget !== 'all' && d.budget !== state.budget) return false;
+    if (state.licenseMode !== 'all' && d.licenseMode !== state.licenseMode) return false;
     if (state.track !== 'all' && d.track !== state.track) return false;
     if (!kw) return true;
     const hay = `${d.fullName} ${d.desc} ${d.angle} ${d.price} ${d.track} ${d.language || ''} ${d.license || ''}`.toLowerCase();
@@ -155,6 +157,7 @@ async function boot() {
   })));
   renderSegmented($('#levelTabs'), 'level', groupOptions('level', LEVELS));
   renderSegmented($('#budgetTabs'), 'budget', groupOptions('budget', BUDGETS));
+  renderSegmented($('#licenseModeTabs'), 'licenseMode', groupOptions('licenseMode', LICENSE_MODES));
   renderSegmented($('#trackTabs'), 'track', groupOptions('track'));
 
   $('#searchInput').addEventListener('input', (e) => {
@@ -168,7 +171,7 @@ async function boot() {
   });
 
   $('#resetBtn').addEventListener('click', () => {
-    state = { issue: 'all', level: 'all', budget: 'all', track: 'all', kw: '', sort: 'stars' };
+    state = { issue: 'all', level: 'all', budget: 'all', licenseMode: 'all', track: 'all', kw: '', sort: 'stars' };
     $('#searchInput').value = '';
     $('#sortSelect').value = 'stars';
     document.querySelectorAll('.filters .segmented').forEach((group) => {
