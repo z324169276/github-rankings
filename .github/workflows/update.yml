@@ -11,6 +11,7 @@ on:
     paths:
       - 'public/**'
       - 'scripts/**'
+      - 'reports/**'
       - 'server/**'
       - 'package.json'
       - '.github/workflows/**'
