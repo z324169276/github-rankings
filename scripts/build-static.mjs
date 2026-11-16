@@ -121,6 +121,69 @@ function copyDir(from, to) {
   }
 }
 
+/** 许可证决定收钱方式：宽松许可可变现产品，copyleft 只能做服务 */
+const PERMISSIVE = new Set(['MIT', 'Apache-2.0', 'BSD-2-Clause', 'BSD-3-Clause', 'ISC', 'Unlicense', '0BSD', 'MPL-2.0', 'Zlib']);
+const COPYLEFT = new Set(['AGPL-3.0', 'GPL-3.0', 'GPL-2.0', 'LGPL-3.0', 'LGPL-2.1', 'OSL-3.0']);
+
+function licenseMode(license) {
+  if (!license) return '需核对';
+  if (PERMISSIVE.has(license)) return '可做产品';
+  if (COPYLEFT.has(license)) return '只能做服务';
+  return '需核对';
+}
+
+/**
+ * 项目总表：人工标签（data/projects.json）叠加 db.json 的实时星标与许可证。
+ * 星标、fork 会随每日刷新变化，所以不在人工文件里写死。
+ */
+function buildProjects() {
+  const src = path.join(ROOT, 'data', 'projects.json');
+  if (!fs.existsSync(src)) {
+    console.warn('⚠ 未找到 data/projects.json，projects.html 将无法加载数据');
+    return 0;
+  }
+
+  const meta = JSON.parse(fs.readFileSync(src, 'utf8'));
+  const repos = getRepos();
+  const items = [];
+  const missing = [];
+
+  for (const it of meta.items) {
+    const repo = repos[it.fullName];
+    if (!repo) {
+      missing.push(it.fullName);
+      continue;
+    }
+    items.push({
+      fullName: repo.fullName,
+      url: repo.url,
+      avatar: repo.avatar,
+      desc: repo.desc || '',
+      stars: repo.stars || 0,
+      forks: repo.forks || 0,
+      language: repo.language || null,
+      license: repo.license || null,
+      licenseMode: licenseMode(repo.license),
+      createdAt: repo.createdAt ? new Date(repo.createdAt).toISOString() : null,
+      issue: it.issue,
+      track: it.track,
+      budget: it.budget,
+      level: it.level,
+      angle: it.angle,
+      price: it.price,
+    });
+  }
+
+  if (missing.length) console.warn(`⚠ 总表中 ${missing.length} 个仓库不在当前快照内：${missing.join(', ')}`);
+
+  writeJson(path.join(DATA, 'projects.json'), {
+    count: items.length,
+    updatedAt: getMeta().lastRunAt || Date.now(),
+    items,
+  });
+  return items.length;
+}
+
 async function main() {
   initStore();
   if (repoCount() === 0) {
@@ -156,6 +219,9 @@ async function main() {
   } else {
     console.warn('⚠ 未找到 data/radar.json，radar.html 将无法加载数据（先运行 node scripts/build-radar.mjs）');
   }
+
+  // 项目总表：四期榜单的人工标签 + 实时仓库数据
+  const projectCount = buildProjects();
 
   const meta = getMeta();
   const stats = getStats();
@@ -380,6 +446,16 @@ async function main() {
   </url>`,
         ]
       : []),
+    ...(fs.existsSync(path.join(DIST, 'projects.html'))
+      ? [
+          `  <url>
+    <loc>${escXml(SITE_URL + 'projects.html')}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+        ]
+      : []),
     ...detailList.map((d) => {
       const loc = `${SITE_URL}${detailPagePath(d.fullName)}`;
       const lm = Number.isFinite(d.pushedAt)
@@ -413,6 +489,7 @@ ${urlEntries.join('\n')}
   console.log(`  README 摘要 ${excerpts.size} 条（raw ${src.raw} / mirror ${src.mirror} / api ${src.api}${down}，SKIP_README=1 可跳过）`);
   console.log(`  API  api/v1/   RSS  ${feeds.map((f) => f.file).join(' / ')}`);
   console.log(`  商业化雷达  ${hasRadar ? '已发布 radar.html' : '未生成 data/radar.json，已跳过'}`);
+  console.log(`  项目总表  ${projectCount ? `已发布 ${projectCount} 个项目` : '已跳过'} `);
 }
 
 main().catch((err) => {

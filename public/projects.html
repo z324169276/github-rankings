@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>项目总表 · 四期商业化雷达合并</title>
+  <meta name="description" content="把四期 GitHub 商业化雷达的 53 个项目合并成一张可筛选总表，按期次、交付难度、客户预算、许可证方式与赛道过滤。" />
+  <meta name="keywords" content="GitHub,开源项目,独立开发,二次开发,报价,交付难度,项目总表" />
+  <meta name="author" content="z324169276" />
+  <meta name="theme-color" content="#0a84ff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GitHub 榜单" />
+  <meta property="og:title" content="项目总表 · 四期商业化雷达合并" />
+  <meta property="og:description" content="53 个项目的期次、难度、预算、许可证、报价放在同一张表里，可按任意维度筛选。" />
+  <meta property="og:locale" content="zh_CN" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="radar.css" />
+  <link rel="stylesheet" href="projects.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a84ff'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01L12 2z"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>GitHub 榜单</h1>
+        <p>商业化雷达</p>
+      </div>
+    </a>
+    <div class="top-actions">
+      <a class="btn ghost" href="index.html">趋势榜</a>
+      <a class="btn ghost" href="radar.html">雷达</a>
+      <a class="btn ghost" href="reports.html">往期榜单</a>
+      <button class="btn icon" id="themeBtn" type="button" title="切换主题">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">All Issues · One Table</p>
+      <h2>四期榜单，合并成<em>一张总表</em></h2>
+      <p class="hero-desc">
+        按赛道、许可证、客户预算、交付难度分别写过四期，这里把 53 个项目的结论压进同一张表。
+        任意维度都能筛，适合先定方向、再回头看依据。
+      </p>
+      <div class="stats" id="stats">
+        <div class="stat"><span class="stat-value" id="statCount">—</span><span class="stat-label">项目总数</span></div>
+        <div class="stat"><span class="stat-value" id="statShown">—</span><span class="stat-label">当前显示</span></div>
+        <div class="stat"><span class="stat-value" id="statTracks">—</span><span class="stat-label">覆盖赛道</span></div>
+        <div class="stat"><span class="stat-value" id="statUpdated">—</span><span class="stat-label">数据更新</span></div>
+      </div>
+    </section>
+
+    <section class="filters">
+      <div class="filter-row">
+        <span class="filter-label">期次</span>
+        <div class="segmented" id="issueTabs" role="tablist"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">难度</span>
+        <div class="segmented" id="levelTabs" role="tablist"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">预算</span>
+        <div class="segmented" id="budgetTabs" role="tablist"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">赛道</span>
+        <div class="segmented" id="trackTabs" role="tablist"></div>
+      </div>
+      <div class="filter-foot">
+        <label class="search">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="searchInput" type="search" placeholder="搜索项目 / 判断 / 报价" autocomplete="off" />
+        </label>
+        <label class="sort">
+          <span>排序</span>
+          <select id="sortSelect">
+            <option value="stars">星标</option>
+            <option value="forks">fork</option>
+            <option value="level">难度（低到高）</option>
+            <option value="budget">预算（低到高）</option>
+            <option value="issue">期次</option>
+          </select>
+        </label>
+        <button class="btn ghost" id="resetBtn" type="button">重置筛选</button>
+      </div>
+    </section>
+
+    <div class="notice" id="notice" hidden></div>
+
+    <div class="table-wrap">
+      <table class="rank-table project-table" id="projectTable">
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th class="col-angle">怎么卖</th>
+            <th class="col-issue">期次</th>
+            <th class="col-level">难度</th>
+            <th class="col-budget">预算</th>
+            <th class="col-num">星标</th>
+            <th class="col-num col-forks">fork</th>
+            <th class="col-lic">许可证</th>
+            <th class="col-lang">语言</th>
+            <th class="col-price">报价参考</th>
+          </tr>
+        </thead>
+        <tbody id="projectBody"></tbody>
+      </table>
+    </div>
+
+    <section class="method">
+      <h3>这张表怎么读</h3>
+      <ul>
+        <li><b>难度</b>　一星装完就能用、二星要配环境迁数据、三星要对接现有系统、四星要团队与资质</li>
+        <li><b>预算</b>　按客户能批的预算落档：千元 / 万元 / 十万 / 百万级；与难度不成正比</li>
+        <li><b>许可证</b>　MIT / Apache / BSD 可做闭源产品；AGPL / GPL 只能卖部署与定制服务</li>
+        <li><b>怎么卖</b>　一句话说清这个项目卖给谁、解决什么问题，不是项目本身的简介</li>
+        <li><b>报价</b>　来自各期原文的市场参考区间，受地区与客户规模影响很大</li>
+      </ul>
+      <p class="method-note">
+        星标、fork 与许可证每天随抓取更新；难度与预算为统一口径的再评估，不改变各期原文结论。
+        二次开发前请自行核对许可证条款、第三方依赖授权与目标行业资质。
+      </p>
+    </section>
+
+    <p class="footnote">
+      <a href="reports.html">四期原文</a> ·
+      <a href="data/projects.json">总表数据 JSON</a> ·
+      <a href="data/radar.json">雷达数据 JSON</a> ·
+      <a href="https://github.com/z324169276/github-rankings">开源仓库</a>
+    </p>
+  </main>
+
+  <script src="projects.js" type="module"></script>
+</body>
+</html>

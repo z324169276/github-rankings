@@ -1,0 +1,205 @@
+/* 项目总表：复用 style.css 与 radar.css 的主题变量、筛选与表格组件 */
+
+/* ===== 筛选区 ===== */
+.filters {
+  display: grid;
+  gap: 10px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.filter-label {
+  flex: none;
+  width: 34px;
+  font-size: 11.5px;
+  color: var(--muted);
+  letter-spacing: 0.4px;
+}
+
+.filter-row .segmented {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filter-row .segmented::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+  margin-top: 2px;
+  border-top: 1px dashed var(--border);
+}
+
+.filter-foot .search {
+  flex: 1 1 260px;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.sort select {
+  padding: 7px 10px;
+  font-size: 12px;
+  font-family: inherit;
+  color: var(--text-dim);
+  background: var(--panel-strong);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+.sort select:focus {
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+/* ===== 表格 ===== */
+.project-table {
+  min-width: 980px;
+}
+
+.project-table .col-angle {
+  min-width: 168px;
+}
+
+.project-table .col-price {
+  min-width: 150px;
+}
+
+.project-table .col-issue,
+.project-table .col-level,
+.project-table .col-budget {
+  white-space: nowrap;
+}
+
+.p-name {
+  display: block;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.p-name:hover {
+  color: var(--accent);
+}
+
+.p-desc {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.p-angle {
+  color: var(--text-dim);
+  font-size: 12.5px;
+}
+
+/* ===== 标签 ===== */
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--panel-strong);
+}
+
+.tag.level-1 {
+  color: var(--green);
+  border-color: color-mix(in srgb, var(--green) 34%, transparent);
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+}
+
+.tag.level-2 {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 34%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.tag.level-3 {
+  color: var(--orange);
+  border-color: color-mix(in srgb, var(--orange) 34%, transparent);
+  background: color-mix(in srgb, var(--orange) 12%, transparent);
+}
+
+.tag.level-4 {
+  color: #e0523f;
+  border-color: rgba(224, 82, 63, 0.36);
+  background: rgba(224, 82, 63, 0.12);
+}
+
+.tag.budget-low {
+  color: var(--muted);
+}
+
+.tag.budget-high {
+  color: var(--text-dim);
+}
+
+.issue-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.issue-link:hover {
+  text-decoration: underline;
+}
+
+.lic-warn {
+  color: var(--orange);
+  font-size: 11.5px;
+}
+
+/* ===== 移动端 ===== */
+@media (max-width: 860px) {
+  .project-table {
+    min-width: 0;
+  }
+
+  .project-table .col-angle,
+  .project-table .col-price,
+  .project-table .col-lic,
+  .project-table .col-lang,
+  .project-table .col-forks,
+  .p-desc {
+    display: none;
+  }
+
+  .filter-label {
+    width: 28px;
+  }
+}

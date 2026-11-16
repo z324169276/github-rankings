@@ -1,0 +1,482 @@
+{
+  "note": "四期商业化雷达的人工标签汇总。星标、fork、语言、许可证由构建时从 data/db.json 覆盖，保证与站点数据一致。预算档与难度档为统一口径的再评估，不改变各期原文结论。",
+  "items": [
+    {
+      "fullName": "kajisho5/ffmpeg-skill",
+      "issue": 1,
+      "track": "视频与内容",
+      "budget": "千元级",
+      "level": "二星",
+      "angle": "固定流程的短视频批量处理",
+      "price": "¥99–299 买断 / 按条计费"
+    },
+    {
+      "fullName": "openfilm/openfilm",
+      "issue": 1,
+      "track": "视频与内容",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "电商商品短视频批量生成",
+      "price": "¥5–20/条 或月付"
+    },
+    {
+      "fullName": "JuneYaooo/rea-video",
+      "issue": 1,
+      "track": "视频与内容",
+      "budget": "千元级",
+      "level": "二星",
+      "angle": "爆款视频拆解报告",
+      "price": "单条 ¥50–200，包月 ¥999"
+    },
+    {
+      "fullName": "KKKKhazix/AIHOT",
+      "issue": 1,
+      "track": "AI / Agent",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "垂直行业情报站",
+      "price": "订阅 ¥99–499/年"
+    },
+    {
+      "fullName": "kanboard/kanboard",
+      "issue": 1,
+      "track": "私有化交付",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "小团队私有看板",
+      "price": "部署 ¥2000–5000，年运维 ¥1000–3000"
+    },
+    {
+      "fullName": "wallabag/wallabag",
+      "issue": 1,
+      "track": "私有化交付",
+      "budget": "万元级",
+      "level": "二星",
+      "angle": "研究型团队资料归档",
+      "price": "部署 + 迁移 ¥5000 起"
+    },
+    {
+      "fullName": "krayin/laravel-crm",
+      "issue": 1,
+      "track": "客服与 CRM",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "传统行业精简版 CRM",
+      "price": "定制 ¥1–5 万"
+    },
+    {
+      "fullName": "binwiederhier/ntfy",
+      "issue": 1,
+      "track": "私有化交付",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "通知底座打包进方案",
+      "price": "附加模块 / 按消息量托管"
+    },
+    {
+      "fullName": "aureuserp/aureuserp",
+      "issue": 1,
+      "track": "垂直行业系统",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "小企业轻量 ERP，利润在 Excel 迁移",
+      "price": "迁移服务另计"
+    },
+    {
+      "fullName": "bagisto/bagisto",
+      "issue": 1,
+      "track": "电商与建站",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "垂直品类商城",
+      "price": "建站 + 品类数据 + 支付"
+    },
+    {
+      "fullName": "filamentphp/filament",
+      "issue": 1,
+      "track": "开发底座",
+      "budget": "万元级",
+      "level": "二星",
+      "angle": "接 PHP 后台定制的底座",
+      "price": "作为接单能力，不单独售卖"
+    },
+    {
+      "fullName": "Clipy/Clipy",
+      "issue": 1,
+      "track": "桌面工具",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "垂直剪贴板工具",
+      "price": "¥30–68 买断"
+    },
+    {
+      "fullName": "anmolkapil/plexo",
+      "issue": 1,
+      "track": "桌面工具",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "素材批量下载与整理",
+      "price": "买断 + 团队授权"
+    },
+    {
+      "fullName": "KnifeLemon/Filee",
+      "issue": 2,
+      "track": "数据与文档",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "单一行业批量格式转换",
+      "price": "¥99–299 买断 / ¥3000 起定制规则"
+    },
+    {
+      "fullName": "storytold/pdfcraft",
+      "issue": 2,
+      "track": "数据与文档",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "合同批量脱敏与处理",
+      "price": "¥0.1–0.5/份；私有部署 ¥1–3 万"
+    },
+    {
+      "fullName": "storytold/filmcraft",
+      "issue": 2,
+      "track": "视频与内容",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "固定流程批量剪辑",
+      "price": "¥3–10/条"
+    },
+    {
+      "fullName": "steipete/CodexBar",
+      "issue": 2,
+      "track": "运维与监控",
+      "budget": "千元级",
+      "level": "二星",
+      "angle": "团队 AI 用量与成本面板",
+      "price": "¥20–50/人/月"
+    },
+    {
+      "fullName": "Albert-Weasker/niubigeo",
+      "issue": 2,
+      "track": "AI / Agent",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "AI 搜索品牌可见度监测",
+      "price": "月付 ¥2000–8000；单次 ¥1500 起"
+    },
+    {
+      "fullName": "Ryze-AI-Adgent/open-seo-mcp-skills",
+      "issue": 2,
+      "track": "AI / Agent",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "交付时的提效工具",
+      "price": "不单独卖"
+    },
+    {
+      "fullName": "docusealco/docuseal",
+      "issue": 2,
+      "track": "协作与办公",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "中小企业私有电子签",
+      "price": "¥5000–15000 + 年维护 ¥2000–5000"
+    },
+    {
+      "fullName": "matomo-org/matomo",
+      "issue": 2,
+      "track": "运维与监控",
+      "budget": "千元级",
+      "level": "二星",
+      "angle": "合规网站分析私有化",
+      "price": "¥3000–8000 + 年运维"
+    },
+    {
+      "fullName": "peach-mitao/peach",
+      "issue": 2,
+      "track": "视频与内容",
+      "budget": "万元级",
+      "level": "二星",
+      "angle": "视频团队素材资产管理",
+      "price": "¥5000 起，按素材量"
+    },
+    {
+      "fullName": "monicahq/monica",
+      "issue": 2,
+      "track": "客服与 CRM",
+      "budget": "万元级",
+      "level": "二星",
+      "angle": "服务型小团队客户台账",
+      "price": "¥5000–12000"
+    },
+    {
+      "fullName": "komi-store/komi-store",
+      "issue": 2,
+      "track": "开发底座",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "企业内部应用分发",
+      "price": "¥1–3 万"
+    },
+    {
+      "fullName": "cjpais/Handy",
+      "issue": 2,
+      "track": "桌面工具",
+      "budget": "千元级",
+      "level": "二星",
+      "angle": "垂直行业听写",
+      "price": "¥199–499 买断"
+    },
+    {
+      "fullName": "pppscn/SmsForwarder",
+      "issue": 3,
+      "track": "运维与监控",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "告警通道搭建",
+      "price": "¥300–1500"
+    },
+    {
+      "fullName": "allinurl/goaccess",
+      "issue": 3,
+      "track": "运维与监控",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "服务器日志看板",
+      "price": "¥800–1500 + ¥300/月"
+    },
+    {
+      "fullName": "iamgio/quarkdown",
+      "issue": 3,
+      "track": "数据与文档",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "技术文档成册",
+      "price": "¥500–1500/本 + ¥500/月"
+    },
+    {
+      "fullName": "unopim/unopim",
+      "issue": 3,
+      "track": "电商与建站",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "多平台商品资料中台",
+      "price": "¥1.5–3 万"
+    },
+    {
+      "fullName": "zammad/zammad",
+      "issue": 3,
+      "track": "客服与 CRM",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "多渠道客服收成工单",
+      "price": "¥1.5–3 万 + 年维护"
+    },
+    {
+      "fullName": "linlinjava/litemall",
+      "issue": 3,
+      "track": "电商与建站",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "本地商家小程序商城",
+      "price": "¥5000–3 万"
+    },
+    {
+      "fullName": "firefly-iii/firefly-iii",
+      "issue": 3,
+      "track": "协作与办公",
+      "budget": "千元级",
+      "level": "二星",
+      "angle": "小团队收支台账",
+      "price": "¥3000–8000"
+    },
+    {
+      "fullName": "YunaiV/ruoyi-vue-pro",
+      "issue": 3,
+      "track": "开发底座",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "定制系统交付底座",
+      "price": "单模块 ¥2–5 万"
+    },
+    {
+      "fullName": "YunaiV/yudao-cloud",
+      "issue": 3,
+      "track": "开发底座",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "仅客户要求微服务时用",
+      "price": "随整包"
+    },
+    {
+      "fullName": "instructure/canvas-lms",
+      "issue": 3,
+      "track": "垂直行业系统",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "培训机构教学系统",
+      "price": "¥8–15 万"
+    },
+    {
+      "fullName": "spree/spree",
+      "issue": 3,
+      "track": "电商与建站",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "B2B 报价型电商",
+      "price": "¥10 万起，只接单模块"
+    },
+    {
+      "fullName": "pocketbase/pocketbase",
+      "issue": 4,
+      "track": "开发底座",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "单文件后端做内部小工具",
+      "price": "¥800–2000，打包 ¥3000–6000"
+    },
+    {
+      "fullName": "Stirling-Tools/Stirling-PDF",
+      "issue": 4,
+      "track": "数据与文档",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "内网 PDF 工具箱",
+      "price": "¥2000–5000"
+    },
+    {
+      "fullName": "louislam/uptime-kuma",
+      "issue": 4,
+      "track": "运维与监控",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "自托管监控 + 监控清单咨询",
+      "price": "¥1500–3500 + 代维"
+    },
+    {
+      "fullName": "gogs/gogs",
+      "issue": 4,
+      "track": "私有化交付",
+      "budget": "千元级",
+      "level": "一星",
+      "angle": "小团队自建 Git",
+      "price": "¥2000；含迁移 ¥5000–1 万"
+    },
+    {
+      "fullName": "dani-garcia/vaultwarden",
+      "issue": 4,
+      "track": "私有化交付",
+      "budget": "万元级",
+      "level": "二星",
+      "angle": "企业密码库",
+      "price": "¥3000–8000"
+    },
+    {
+      "fullName": "nocodb/nocodb",
+      "issue": 4,
+      "track": "数据与文档",
+      "budget": "万元级",
+      "level": "二星",
+      "angle": "Excel 变内部系统",
+      "price": "¥5000–3 万起"
+    },
+    {
+      "fullName": "docling-project/docling",
+      "issue": 4,
+      "track": "数据与文档",
+      "budget": "万元级",
+      "level": "二星",
+      "angle": "文档转结构化数据",
+      "price": "¥1–3 万/万页"
+    },
+    {
+      "fullName": "hoppscotch/hoppscotch",
+      "issue": 4,
+      "track": "开发底座",
+      "budget": "万元级",
+      "level": "二星",
+      "angle": "自托管 API 调试平台",
+      "price": "¥5000–1.2 万"
+    },
+    {
+      "fullName": "chatwoot/chatwoot",
+      "issue": 4,
+      "track": "客服与 CRM",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "多渠道客服台",
+      "price": "¥3–6 万"
+    },
+    {
+      "fullName": "twentyhq/twenty",
+      "issue": 4,
+      "track": "客服与 CRM",
+      "budget": "十万级",
+      "level": "三星",
+      "angle": "开源 CRM 落地",
+      "price": "¥5–15 万"
+    },
+    {
+      "fullName": "TryGhost/Ghost",
+      "issue": 4,
+      "track": "电商与建站",
+      "budget": "万元级",
+      "level": "三星",
+      "angle": "会员制内容站",
+      "price": "¥8000–2 万"
+    },
+    {
+      "fullName": "nextcloud/server",
+      "issue": 4,
+      "track": "私有化交付",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "私有云盘与协同",
+      "price": "¥5–15 万"
+    },
+    {
+      "fullName": "opf/openproject",
+      "issue": 4,
+      "track": "协作与办公",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "项目管理落地与培训",
+      "price": "¥10–30 万"
+    },
+    {
+      "fullName": "discourse/discourse",
+      "issue": 4,
+      "track": "协作与办公",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "社区论坛与运营陪跑",
+      "price": "¥2–15 万"
+    },
+    {
+      "fullName": "grafana/grafana",
+      "issue": 4,
+      "track": "运维与监控",
+      "budget": "十万级",
+      "level": "四星",
+      "angle": "可观测性看板与告警",
+      "price": "¥1–15 万"
+    },
+    {
+      "fullName": "immich-app/immich",
+      "issue": 4,
+      "track": "私有化交付",
+      "budget": "万元级",
+      "level": "四星",
+      "angle": "自托管照片库与迁移",
+      "price": "¥5000–8 万"
+    },
+    {
+      "fullName": "home-assistant/core",
+      "issue": 4,
+      "track": "垂直行业系统",
+      "budget": "万元级",
+      "level": "四星",
+      "angle": "智能家居中枢，需现场调试",
+      "price": "¥2–6 万/套"
+    }
+  ]
+}
