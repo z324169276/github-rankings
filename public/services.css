@@ -1,0 +1,330 @@
+/* 服务与报价页：复用 style.css 的主题变量与顶栏 */
+
+.section-title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+/* ===== 交付包 ===== */
+.pkg-section {
+  margin-bottom: 40px;
+}
+
+.pkg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.pkg {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+}
+
+.pkg-head h4 {
+  margin: 8px 0 4px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.pkg-sub {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.pkg-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+  border-radius: 999px;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.pkg-tag.fast {
+  color: var(--green);
+  border-color: color-mix(in srgb, var(--green) 34%, transparent);
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+}
+
+.pkg-tag.mid {
+  color: var(--orange);
+  border-color: color-mix(in srgb, var(--orange) 34%, transparent);
+  background: color-mix(in srgb, var(--orange) 12%, transparent);
+}
+
+.pkg-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 0;
+  margin: 12px 0 4px;
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+}
+
+.pkg-price b {
+  font-size: 19px;
+  letter-spacing: -0.3px;
+}
+
+.pkg-price span {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.pkg-list {
+  margin: 8px 0 14px;
+  padding-left: 16px;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--text-dim);
+}
+
+.pkg-list li {
+  margin-bottom: 4px;
+}
+
+.pkg-list b {
+  color: var(--text);
+}
+
+.pkg-block {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.pkg-block .lab {
+  display: inline-block;
+  margin-bottom: 2px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+}
+
+.pkg-block p {
+  margin: 0;
+}
+
+.pkg-block.warn .lab {
+  color: var(--orange);
+}
+
+.pkg-block.ok .lab {
+  color: var(--green);
+}
+
+.pkg-note {
+  margin: 16px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ===== 流程 ===== */
+.flow {
+  margin-bottom: 40px;
+}
+
+.steps {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+}
+
+.step-n {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.steps b {
+  font-size: 13.5px;
+}
+
+.steps p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ===== 边界 ===== */
+.boundary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.bd-col {
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+}
+
+.bd-col h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.bd-col ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+
+.bd-col.yes h3 {
+  color: var(--green);
+}
+
+.bd-col.no h3 {
+  color: var(--orange);
+}
+
+/* ===== FAQ ===== */
+.faq {
+  margin-bottom: 40px;
+}
+
+.faq details {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--panel);
+}
+
+.faq summary {
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq details p {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+/* ===== 联系 ===== */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  margin-bottom: 32px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--accent) 6%, var(--panel));
+}
+
+.contact-text h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.contact-text p {
+  margin: 0 0 8px;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--text-dim);
+}
+
+.contact-tip {
+  color: var(--muted);
+}
+
+.contact-fallback {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.contact-fallback a {
+  color: var(--accent);
+}
+
+.qr-box {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+
+.qr-box img {
+  display: block;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.qr-hint {
+  font-size: 11px;
+  color: #666;
+}
+
+.qr-empty {
+  display: none;
+  font-size: 11px;
+  color: #999;
+}
+
+.qr-missing img,
+.qr-missing .qr-hint {
+  display: none;
+}
+
+.qr-missing .qr-empty {
+  display: block;
+  padding: 40px 10px;
+}
+
+/* ===== 移动端 ===== */
+@media (max-width: 720px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .qr-box {
+    justify-self: start;
+  }
+}

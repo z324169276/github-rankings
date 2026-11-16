@@ -183,6 +183,7 @@ function shell({ title, desc, body, page }) {
     <a class="btn ghost" href="${page === 'index' ? '' : '../'}index.html">趋势榜</a>
     <a class="btn ghost" href="${page === 'index' ? '' : '../'}radar.html">商业化雷达</a>
     <a class="btn ghost" href="${page === 'index' ? '' : '../'}projects.html">项目总表</a>
+    <a class="btn primary" href="${page === 'index' ? '' : '../'}services.html">服务与报价</a>
   </div>
 </header>
 <main>

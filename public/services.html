@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>服务与报价 · 私有化部署与内网工具交付</title>
+  <meta name="description" content="个人承接开源项目的私有化部署与交付：内网 PDF 工具箱、监控与告警通道、小团队私有系统。明码标价、写清验收标准、不含项单独说明。" />
+  <meta name="keywords" content="私有化部署,内网工具,开源项目交付,Uptime Kuma,Stirling-PDF,Vaultwarden,NocoDB,小团队系统,接单" />
+  <meta name="author" content="z324169276" />
+  <meta name="theme-color" content="#0a84ff" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GitHub 榜单" />
+  <meta property="og:title" content="服务与报价 · 私有化部署与内网工具交付" />
+  <meta property="og:description" content="三个标准化交付包，价格与验收标准都写在明面上。不接的活也写清楚了。" />
+  <meta property="og:locale" content="zh_CN" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="services.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a84ff'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01L12 2z"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>GitHub 榜单</h1>
+        <p>服务与报价</p>
+      </div>
+    </a>
+    <div class="top-actions">
+      <a class="btn ghost" href="index.html">趋势榜</a>
+      <a class="btn ghost" href="radar.html">雷达</a>
+      <a class="btn ghost" href="projects.html">项目总表</a>
+      <a class="btn ghost" href="reports.html">往期榜单</a>
+      <a class="btn primary" href="#contact">询价</a>
+      <button class="btn icon" id="themeBtn" type="button" title="切换主题">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Deployment Service</p>
+      <h2>开源项目<em>落地交付</em>，明码标价</h2>
+      <p class="hero-desc">
+        一个人接单，只做能在一周内交付完的活。三个标准化交付包，交付内容、验收标准和<strong>不含项</strong>都写在下面。
+        价格是区间，具体看你的环境。
+      </p>
+      <div class="stats">
+        <div class="stat"><span class="stat-value">¥1500</span><span class="stat-label">起步价</span></div>
+        <div class="stat"><span class="stat-value">1–7 天</span><span class="stat-label">交付周期</span></div>
+        <div class="stat"><span class="stat-value">50%</span><span class="stat-label">预付比例</span></div>
+        <div class="stat"><span class="stat-value">7 天</span><span class="stat-label">免费修 bug</span></div>
+      </div>
+    </section>
+
+    <section class="pkg-section">
+      <h3 class="section-title">三个交付包</h3>
+      <div class="pkg-grid">
+        <article class="pkg">
+          <div class="pkg-head">
+            <span class="pkg-tag">最常见</span>
+            <h4>内网工具包</h4>
+            <p class="pkg-sub">给不方便把文件传上公有云的公司，搭一套内网能用的工具</p>
+          </div>
+          <div class="pkg-price"><b>¥2000–5000</b><span>2–3 天</span></div>
+          <ul class="pkg-list">
+            <li><b>Stirling-PDF</b>　合并、拆分、转格式、加水印、压缩，全部在内网完成</li>
+            <li><b>Uptime Kuma</b>　站点、端口、证书到期监控，异常推送到群</li>
+            <li><b>Gogs</b>　小团队自建 Git 仓库，代码不出内网</li>
+          </ul>
+          <div class="pkg-block">
+            <span class="lab">交付</span>
+            <p>服务器安装、HTTPS、每日自动备份、账号与权限、一页操作说明</p>
+          </div>
+          <div class="pkg-block warn">
+            <span class="lab">不含</span>
+            <p>公网备案、历史文件批量转换、二次开发</p>
+          </div>
+          <div class="pkg-block ok">
+            <span class="lab">验收</span>
+            <p>你在内网浏览器打开三个地址，各自完成一次真实操作</p>
+          </div>
+        </article>
+
+        <article class="pkg">
+          <div class="pkg-head">
+            <span class="pkg-tag fast">成交最快</span>
+            <h4>告警通道</h4>
+            <p class="pkg-sub">验证码、监控短信没人盯，出问题几小时后才知道</p>
+          </div>
+          <div class="pkg-price"><b>¥1500–3500</b><span>1–2 天</span></div>
+          <ul class="pkg-list">
+            <li><b>SmsForwarder</b>　旧安卓机把短信、来电、通知按规则转发出去</li>
+            <li><b>机器人分流</b>　按关键词进不同的企业微信 / 钉钉 / 飞书群</li>
+            <li><b>ntfy</b>　备用通道，主通道挂了还能收到</li>
+          </ul>
+          <div class="pkg-block">
+            <span class="lab">交付</span>
+            <p>规则配置、关键词分群、失效场景说明、一条测试短信跑通</p>
+          </div>
+          <div class="pkg-block warn">
+            <span class="lab">不含</span>
+            <p>短信费用、安卓设备、运营商侧配置</p>
+          </div>
+          <div class="pkg-block ok">
+            <span class="lab">验收</span>
+            <p>发一条测试短信，对应群 1 分钟内收到，并当场演示断网后的表现</p>
+          </div>
+        </article>
+
+        <article class="pkg">
+          <div class="pkg-head">
+            <span class="pkg-tag mid">客单最高</span>
+            <h4>小团队私有系统</h4>
+            <p class="pkg-sub">Excel 管不住、又不想买 SaaS 的那类内部系统</p>
+          </div>
+          <div class="pkg-price"><b>¥3000–12000</b><span>3–7 天</span></div>
+          <ul class="pkg-list">
+            <li><b>NocoDB</b>　Excel 变成多人协作的内部数据库，带权限和表单</li>
+            <li><b>Vaultwarden</b>　公司账号密码统一存放，谁用过有记录</li>
+            <li><b>Kanban / wallabag</b>　任务看板、资料归档，二选一</li>
+          </ul>
+          <div class="pkg-block">
+            <span class="lab">交付</span>
+            <p>部署、字段建模、历史 Excel 导入（≤5000 行）、一次 60 分钟培训</p>
+          </div>
+          <div class="pkg-block warn">
+            <span class="lab">不含</span>
+            <p>定制开发、与旧系统对接、脏数据清洗（单独报价）</p>
+          </div>
+          <div class="pkg-block ok">
+            <span class="lab">验收</span>
+            <p>你自己账号录入 10 条真实数据，并成功导出成表格</p>
+          </div>
+        </article>
+      </div>
+      <p class="pkg-note">
+        以上项目都是开源软件，我只收部署、配置、迁移和培训的钱，不卖软件授权。
+        需要对接现有系统、批量处理文档（PDF / 合同 / 扫描件）的，按项目单独报价。
+      </p>
+    </section>
+
+    <section class="flow">
+      <h3 class="section-title">怎么开始</h3>
+      <ol class="steps">
+        <li><span class="step-n">1</span><div><b>加微信，一句话说清场景</b><p>谁用、解决什么问题、现在怎么做的。不用写需求文档。</p></div></li>
+        <li><span class="step-n">2</span><div><b>30 分钟内给你判断</b><p>能做、大概多少钱、有什么坑。做不了会直接说。</p></div></li>
+        <li><span class="step-n">3</span><div><b>一页报价单</b><p>交付物、验收标准、工期、付款节点，四项写清，不写「满足需求」。</p></div></li>
+        <li><span class="step-n">4</span><div><b>预付 50% 开工</b><p>部署类可 70%。尾款在验收通过后结。</p></div></li>
+        <li><span class="step-n">5</span><div><b>远程交付 + 录屏</b><p>交付过程录屏，加一页说明，后续换人也能接手。</p></div></li>
+      </ol>
+    </section>
+
+    <section class="boundary">
+      <div class="bd-col yes">
+        <h3>能接</h3>
+        <ul>
+          <li>10–50 人公司的内部工具与私有化部署</li>
+          <li>已有服务器或愿意买一台云主机</li>
+          <li>需求能用现成开源项目满足，改造量在一周内</li>
+          <li>能接受远程交付、按验收清单结款</li>
+        </ul>
+      </div>
+      <div class="bd-col no">
+        <h3>不接</h3>
+        <ul>
+          <li>需要招投标、等保测评、涉密资质的项目</li>
+          <li>医疗、金融核心系统，以及任何要承担业务责任的场景</li>
+          <li>把 AGPL 项目改成闭源 SaaS 售卖</li>
+          <li>承诺「帮你把小程序/支付上线」——这需要你的主体资质</li>
+          <li>7×24 值守和长期驻场</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="faq">
+      <h3 class="section-title">常见问题</h3>
+      <details><summary>能开发票吗？</summary><p>可以，公司主体。需要开票请在下单前说明，抬头和税号一起给我。</p></details>
+      <details><summary>交付后出问题怎么办？</summary><p>验收后 7 天内的问题免费修。之后按次 ¥300 起，或签年维护（约为项目款的 15%–20%）。</p></details>
+      <details><summary>为什么比外包公司便宜？</summary><p>没有销售、项目经理和售前，成本只在交付本身。代价是我一次只接一个活，排期要等。</p></details>
+      <details><summary>我在外地，能远程做吗？</summary><p>全程远程，服务器我用 SSH 操作，关键步骤录屏。需要现场调试的（比如智能家居、门禁）不接。</p></details>
+      <details><summary>服务器、域名谁准备？</summary><p>你准备，或我代买后据实结算。备案必须用你的主体，我不代办。</p></details>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-text">
+        <h3>先聊 30 分钟，不收费</h3>
+        <p>加微信请直接说明三件事：<b>什么公司 / 想解决什么 / 预算大概多少</b>。信息齐全的，当天给判断。</p>
+        <p class="contact-tip">不需要写需求文档，也不用先付咨询费。做不了我会直接说，不浪费彼此时间。</p>
+        <p class="contact-fallback">
+          二维码没加载出来？把本页地址发给我，或在
+          <a href="https://github.com/z324169276/github-rankings/issues" target="_blank" rel="noopener">GitHub Issues</a>
+          留言。
+        </p>
+      </div>
+      <div class="qr-box">
+        <img src="wechat-qr.png" alt="微信二维码" width="200" height="200"
+             onerror="this.hidden=true;this.parentElement.classList.add('qr-missing')" />
+        <div class="qr-hint">微信扫码</div>
+        <div class="qr-empty">二维码待上传</div>
+      </div>
+    </section>
+
+    <p class="footnote">
+      <a href="projects.html">项目总表</a> ·
+      <a href="reports.html">四期原文</a> ·
+      <a href="https://github.com/z324169276/github-rankings">开源仓库</a>
+    </p>
+  </main>
+
+  <script>
+    document.getElementById('themeBtn').addEventListener('click', function () {
+      const root = document.documentElement;
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('gh-rank-theme', next);
+    });
+    const saved = localStorage.getItem('gh-rank-theme');
+    if (saved) document.documentElement.dataset.theme = saved;
+  </script>
+</body>
+</html>

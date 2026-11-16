@@ -456,6 +456,16 @@ async function main() {
   </url>`,
         ]
       : []),
+    ...(fs.existsSync(path.join(DIST, 'services.html'))
+      ? [
+          `  <url>
+    <loc>${escXml(SITE_URL + 'services.html')}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>`,
+        ]
+      : []),
     ...detailList.map((d) => {
       const loc = `${SITE_URL}${detailPagePath(d.fullName)}`;
       const lm = Number.isFinite(d.pushedAt)
