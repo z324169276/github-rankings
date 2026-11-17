@@ -12,6 +12,7 @@ on:
       - 'public/**'
       - 'scripts/**'
       - 'reports/**'
+      - 'guides/**'
       - 'data/projects.json'
       - 'server/**'
       - 'package.json'

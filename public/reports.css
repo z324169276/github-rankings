@@ -153,6 +153,40 @@
   border-top: 1px solid var(--border);
 }
 
+.md pre {
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--panel);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.md pre code {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 12.5px;
+  white-space: pre;
+  color: var(--text-dim);
+}
+
+.article-cta {
+  margin-top: 36px;
+  padding: 20px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--accent) 6%, var(--panel));
+}
+
+.article-cta p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
 .md blockquote {
   margin: 0 0 18px;
   padding: 12px 16px;

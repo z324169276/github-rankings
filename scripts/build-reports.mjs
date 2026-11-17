@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const REPORTS_DIR = path.join(ROOT, 'reports');
+const GUIDES_DIR = path.join(ROOT, 'guides');
 
 /* ---------- 极简 Markdown 渲染（仅覆盖榜单报告用到的语法） ---------- */
 
@@ -66,6 +67,22 @@ function renderMarkdown(md) {
     if (/^\s*---+\s*$/.test(line)) {
       out.push('<hr>');
       i++;
+      continue;
+    }
+
+    // 代码块
+    if (/^\s*```/.test(line)) {
+      const lang = line.trim().slice(3).trim();
+      i++;
+      const buf = [];
+      while (i < lines.length && !/^\s*```/.test(lines[i])) {
+        buf.push(lines[i]);
+        i++;
+      }
+      i++;
+      out.push(
+        `<pre><code${lang ? ` class="lang-${escapeHtml(lang)}"` : ''}>${escapeHtml(buf.join('\n'))}</code></pre>`,
+      );
       continue;
     }
 
@@ -139,6 +156,7 @@ function renderMarkdown(md) {
       !/^\s*([-*]|\d+\.)\s+/.test(lines[i]) &&
       !/^>\s?/.test(lines[i]) &&
       !isTableRow(lines[i]) &&
+      !/^\s*```/.test(lines[i]) &&
       !/^\s*---+\s*$/.test(lines[i])
     ) {
       buf.push(lines[i].trim());
@@ -154,7 +172,7 @@ function renderMarkdown(md) {
 
 /* ---------- 页面骨架 ---------- */
 
-function shell({ title, desc, body, page }) {
+function shell({ title, desc, body, page, brandSub = '往期榜单' }) {
   return `<!doctype html>
 <html lang="zh-CN" data-theme="dark">
 <head>
@@ -177,12 +195,13 @@ function shell({ title, desc, body, page }) {
         <path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01L12 2z"/>
       </svg>
     </div>
-    <div class="brand-text"><h1>GitHub 榜单</h1><p>往期榜单</p></div>
+    <div class="brand-text"><h1>GitHub 榜单</h1><p>${escapeHtml(brandSub)}</p></div>
   </a>
   <div class="top-actions">
     <a class="btn ghost" href="${page === 'index' ? '' : '../'}index.html">趋势榜</a>
     <a class="btn ghost" href="${page === 'index' ? '' : '../'}radar.html">商业化雷达</a>
     <a class="btn ghost" href="${page === 'index' ? '' : '../'}projects.html">项目总表</a>
+    <a class="btn ghost" href="${page === 'index' ? '' : '../'}guides.html">问题手册</a>
     <a class="btn primary" href="${page === 'index' ? '' : '../'}services.html">服务与报价</a>
   </div>
 </header>
@@ -273,4 +292,74 @@ ${cards}
   fs.writeFileSync(path.join(distDir, 'reports.html'), indexHtml, 'utf8');
 
   console.log(`  往期榜单  ${items.length} 篇 → dist/reports.html`);
+}
+
+/* ---------- 问题手册：面向客户的搜索落地页 ---------- */
+
+export function buildGuides(distDir) {
+  if (!fs.existsSync(GUIDES_DIR)) return 0;
+
+  const files = fs.readdirSync(GUIDES_DIR).filter((f) => f.endsWith('.md'));
+  if (!files.length) return 0;
+
+  const outDir = path.join(distDir, 'guides');
+  fs.mkdirSync(outDir, { recursive: true });
+
+  const items = files.map((file) => {
+    const md = fs.readFileSync(path.join(GUIDES_DIR, file), 'utf8');
+    const { title, html, excerpt } = renderMarkdown(md);
+    const slug = file.replace(/\.md$/, '');
+
+    const pageHtml = shell({
+      title: `${title || slug} · 问题手册`,
+      desc: excerpt,
+      page: 'article',
+      brandSub: '问题手册',
+      body: `<article class="article">
+  <a class="back" href="../guides.html">← 全部问题</a>
+  <h1>${escapeHtml(title || slug)}</h1>
+  <div class="md">
+${html}
+  </div>
+  <div class="article-cta">
+    <p>这类问题如果要在一周内落地，我这边提供部署交付。</p>
+    <a class="btn primary" href="../services.html">看服务与报价 →</a>
+  </div>
+</article>`,
+    });
+    fs.writeFileSync(path.join(outDir, `${slug}.html`), pageHtml, 'utf8');
+
+    return { slug, title, excerpt };
+  });
+
+  items.sort((a, b) => (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));
+
+  const cards = items
+    .map(
+      (it) => `<a class="report-card" href="guides/${encodeURI(it.slug)}.html">
+  <div class="report-date">问题手册</div>
+  <h2>${escapeHtml(it.title)}</h2>
+  <p>${escapeHtml(it.excerpt)}</p>
+  <span class="report-more">阅读全文 →</span>
+</a>`,
+    )
+    .join('\n');
+
+  const indexHtml = shell({
+    title: '问题手册 · 内网部署与私有化交付',
+    desc: '公司内网、服务器监控、Excel 协作这类具体问题怎么处理，写清做法、局限和什么时候该找人。',
+    page: 'index',
+    brandSub: '问题手册',
+    body: `<section class="hero">
+  <p class="eyebrow">Problem Guides</p>
+  <h2>具体问题的<em>解决思路</em></h2>
+  <p class="hero-desc">不讲概念，只讲某个具体麻烦怎么处理、有哪些坑、什么情况下该找人做。每个问题对应一类可交付的部署。</p>
+</section>
+<section class="report-list">
+${cards}
+</section>`,
+  });
+  fs.writeFileSync(path.join(distDir, 'guides.html'), indexHtml, 'utf8');
+
+  return items.length;
 }
