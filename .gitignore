@@ -12,3 +12,6 @@ data/readmes/
 *.log
 .DS_Store
 Thumbs.db
+
+# 商品源文件（可售交付包，不进公开仓库）
+products/

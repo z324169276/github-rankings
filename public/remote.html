@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>远程部署交付 · 个人合作</title>
+  <meta name="description" content="个人承接私有化部署与内网工具落地：文档工具、监控告警、开源系统二次部署。全远程，可开票。" />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a84ff'/%3E%3C/svg%3E" />
+  <style>
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
+    .lead { font-size: 15px; line-height: 1.9; color: var(--text-dim); margin: 0 0 28px; }
+    .sec { margin: 44px 0; }
+    .sec h2 { font-size: 19px; margin: 0 0 16px; letter-spacing: -0.01em; }
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .box { padding: 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel); }
+    .box h3 { margin: 0 0 10px; font-size: 14px; }
+    .box ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: var(--text-dim); }
+    .box.no h3 { color: #ff6b6b; }
+    .box.yes h3 { color: #3ddc84; }
+    .cases { display: grid; gap: 14px; }
+    .case { padding: 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel); }
+    .case-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .case-top strong { font-size: 14px; }
+    .case-top span { font-size: 12px; color: var(--text-dim); }
+    .case p { margin: 10px 0 0; font-size: 13px; line-height: 1.8; color: var(--text-dim); }
+    .kv { display: grid; grid-template-columns: 88px 1fr; gap: 10px 14px; font-size: 13px; }
+    .kv dt { color: var(--text-dim); }
+    .kv dd { margin: 0; }
+    .cta { margin-top: 48px; padding: 24px; border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--border)); border-radius: 16px; background: color-mix(in srgb, var(--accent) 7%, var(--panel)); display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .cta-text { flex: 1 1 260px; }
+    .cta-text p { margin: 0; font-size: 13px; line-height: 1.8; color: var(--text-dim); }
+    .cta img { width: 132px; height: 132px; border-radius: 12px; background: #fff; padding: 6px; }
+    @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } .kv { grid-template-columns: 76px 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" style="text-decoration:none;color:inherit">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01L12 2z"/></svg>
+      </div>
+      <div class="brand-text"><h1>部署交付</h1><p>个人合作</p></div>
+    </a>
+    <div class="top-actions">
+      <a class="btn ghost" href="guides.html">问题手册</a>
+      <a class="btn ghost" href="services.html">服务与报价</a>
+      <button class="btn icon" id="themeBtn" type="button" title="切换主题">◐</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" style="padding-top:36px">
+      <p class="eyebrow">Remote Delivery</p>
+      <h2>把开源系统<em>装到客户环境里</em></h2>
+      <p class="lead">我做私有化部署的落地交付：选型之后的安装、配置、中文化、监控、备份和交接。全远程，按项目或按月合作，可开票。</p>
+    </section>
+
+    <section class="sec">
+      <h2>能接什么</h2>
+      <div class="cols">
+        <div class="box yes">
+          <h3>交付内容</h3>
+          <ul>
+            <li>文档与 PDF 工具内网部署（含登录、体积限制、备份）</li>
+            <li>服务器监控与告警接入企业微信 / 钉钉 / 飞书</li>
+            <li>开源系统二次部署与中文化：NocoDB、Uptime Kuma、Vaultwarden、Chatwoot 等</li>
+            <li>静态站点、数据看板与 RSS / JSON 接口生成</li>
+            <li>部署文档、验收清单、使用培训</li>
+          </ul>
+        </div>
+        <div class="box no">
+          <h3>不接</h3>
+          <ul>
+            <li>需要多人团队规模的项目</li>
+            <li>必须长期驻场</li>
+            <li>等保测评、医疗金融合规的整包交付</li>
+            <li>需要投标、写标书、走政府采购流程</li>
+            <li>无明确验收标准的「先做着看看」</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>三个可以当场演示的场景</h2>
+      <div class="cases">
+        <div class="case">
+          <div class="case-top"><strong>内网 PDF 工具箱</strong><span>Stirling-PDF</span></div>
+          <p>开登录、限上传体积、关外发统计、定时备份。合并、拆分、水印、页码、压缩、OCR 全在内网完成。已写好 10 步部署手册和 6 类故障排查。</p>
+        </div>
+        <div class="case">
+          <div class="case-top"><strong>服务器告警通道</strong><span>Uptime Kuma</span></div>
+          <p>HTTP、端口、证书、关键字四类监控，接入群机器人。含告警风暴抑制（连续失败才报）和「监控自己也挂了」的兜底方案。</p>
+        </div>
+        <div class="case">
+          <div class="case-top"><strong>表格变内部系统</strong><span>NocoDB</span></div>
+          <p>Excel 迁到多人协作的数据库表：先拆字段、统一格式、再导入、最后按角色建视图。写清了数据量和字段级权限的边界。</p>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:14px;font-size:13px">以上是目前完成度最高的三套。其余开源系统的部署能力可按需评估，评估不收费。</p>
+    </section>
+
+    <section class="sec">
+      <h2>合作方式</h2>
+      <dl class="kv">
+        <dt>形式</dt><dd>全远程，按项目报价或按月合作</dd>
+        <dt>时区</dt><dd>UTC+8，工作日 10:00–19:00 在线</dd>
+        <dt>响应</dt><dd>工作日 24 小时内回复，紧急问题可约语音</dd>
+        <dt>交付物</dt><dd>可运行环境 + 部署文档 + 验收清单 + 30 分钟交接</dd>
+        <dt>付款</dt><dd>项目预付 50%，验收后结清；可开票</dd>
+        <dt>技术栈</dt><dd>Linux / Docker / Nginx / Node.js / 静态站点构建，少量 Python</dd>
+      </dl>
+    </section>
+
+    <section class="cta">
+      <div class="cta-text">
+        <p><strong>可以先聊一次，不收钱。</strong><br />把你现在卡住的地方说一下，我判断能不能接、大概怎么报价。接不了会直接说，不耽误你时间。</p>
+      </div>
+      <img src="wechat-qr.png" alt="微信二维码" width="132" height="132" onerror="this.style.display='none'" />
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var saved = localStorage.getItem('gh-rank-theme');
+      if (saved) document.documentElement.dataset.theme = saved;
+      var btn = document.getElementById('themeBtn');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('gh-rank-theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>
