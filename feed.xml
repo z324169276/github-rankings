@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub 榜单 · 热门榜</title>
+    <link>https://z324169276.github.io/github-rankings/</link>
+    <description>每日更新的 GitHub 开源趋势榜单</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 21 Nov 2026 08:19:05 GMT</lastBuildDate>
+    <atom:link href="https://z324169276.github.io/github-rankings/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>+13642★ morluto/rea</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=morluto%2Frea</link>
+      <guid isPermaLink="false">trending:morluto/rea</guid>
+      <description>Reverse engineer anything with agents, from app behavior down to native binaries. · TypeScript · 471882★ / 115203 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>+10493★ BaaRai/ARTEX</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=BaaRai%2FARTEX</link>
+      <guid isPermaLink="false">trending:BaaRai/ARTEX</guid>
+      <description>ARTEX - AI autonomous penetration testing system (English translation; upstream: Autumn-27/ARTEX, AGPL-3.0) · Go · 14070★ / 5482 forks</description>
+      <category>Go</category>
+    </item>
+    <item>
+      <title>+9239★ Ebony-Vinyl/dsh-our-free-model</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=Ebony-Vinyl%2Fdsh-our-free-model</link>
+      <guid isPermaLink="false">trending:Ebony-Vinyl/dsh-our-free-model</guid>
+      <description>在 dsh 里装上这个插件即可，无需登录、注册或填 API Key，就能使用包括 DeepSeek V4.1 Flash、Kimi K3 在内的前沿模型——完全免费，不限量。 All you do is install this plugin in dsh: no login, no sign-up, no API key — the frontier models are just there, DeepSeek V4.1 Flash and Kimi K3 among them. Completely free, with no usage cap. · JavaScript · 82490★ / 2322 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>+8523★ pingdotgg/t3code</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=pingdotgg%2Ft3code</link>
+      <guid isPermaLink="false">trending:pingdotgg/t3code</guid>
+      <description>The best way to control Claude Code, Codex and more from any computer or phone · TypeScript · 68369★ / 11768 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>+8013★ storytold/craft-anything</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=storytold%2Fcraft-anything</link>
+      <guid isPermaLink="false">trending:storytold/craft-anything</guid>
+      <description>Craft Anything: understand how any software works, and craft your own. · Rust · 39739★ / 7929 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>+7116★ ccch1mneyyy/dsh-Go</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=ccch1mneyyy%2Fdsh-Go</link>
+      <guid isPermaLink="false">trending:ccch1mneyyy/dsh-Go</guid>
+      <description>dsh-go — DeepSeek Harness 装进口袋：手机本机运行，也能遥控你的电脑。 · Dart · 29212★ / 1398 forks</description>
+      <category>Dart</category>
+    </item>
+    <item>
+      <title>+6795★ stablyai/orca</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=stablyai%2Forca</link>
+      <guid isPermaLink="false">trending:stablyai/orca</guid>
+      <description>Orca lets you run a fleet of bots with your own subscription (e.g. Claude Code, Grok, Agy, Codex). Available on desktop, mobile and remote runtime. · TypeScript · 131328★ / 8348 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>+6178★ libracoder/kiri</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=libracoder%2Fkiri</link>
+      <guid isPermaLink="false">trending:libracoder/kiri</guid>
+      <description>A small, fast container runtime for macOS, Windows and Linux with free Ngrok alternative · Rust · 11780★ / 552 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>+5698★ obra/superpowers</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=obra%2Fsuperpowers</link>
+      <guid isPermaLink="false">trending:obra/superpowers</guid>
+      <description>An agentic skills framework &amp; software development methodology that works. · Shell · 323037★ / 28683 forks</description>
+      <category>Shell</category>
+    </item>
+    <item>
+      <title>+5447★ debpalash/VoiceStudio</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=debpalash%2FVoiceStudio</link>
+      <guid isPermaLink="false">trending:debpalash/VoiceStudio</guid>
+      <description>VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription &amp; audiobook creation in 646 languages. · Python · 115612★ / 12843 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>+5431★ affaan-m/ECC</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=affaan-m%2FECC</link>
+      <guid isPermaLink="false">trending:affaan-m/ECC</guid>
+      <description>The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond. · JavaScript · 307999★ / 45325 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>+5350★ DietrichGebert/ponytail</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=DietrichGebert%2Fponytail</link>
+      <guid isPermaLink="false">trending:DietrichGebert/ponytail</guid>
+      <description>Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote. · JavaScript · 195843★ / 11030 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>+5314★ anefzaoui/misterdownloadmanager</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=anefzaoui%2Fmisterdownloadmanager</link>
+      <guid isPermaLink="false">trending:anefzaoui/misterdownloadmanager</guid>
+      <description>misterdownloadmanager: The ultimate open-source, clean-room download manager written from scratch in pure Rust for Windows, Mac, and Linux · Rust · 14467★ / 1269 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>+5217★ mattpocock/skills</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=mattpocock%2Fskills</link>
+      <guid isPermaLink="false">trending:mattpocock/skills</guid>
+      <description>Skills for Real Engineers. Straight from my .agents directory. · Shell · 329203★ / 27660 forks</description>
+      <category>Shell</category>
+    </item>
+    <item>
+      <title>+5216★ boykopovar/AnyPS5</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=boykopovar%2FAnyPS5</link>
+      <guid isPermaLink="false">trending:boykopovar/AnyPS5</guid>
+      <description>Tool for automatic PS5 executables porting to Linux and Windows · C++ · 58998★ / 5725 forks</description>
+      <category>C++</category>
+    </item>
+    <item>
+      <title>+4418★ pbakaus/impeccable</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=pbakaus%2Fimpeccable</link>
+      <guid isPermaLink="false">trending:pbakaus/impeccable</guid>
+      <description>The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships. · Rust · 114200★ / 6792 forks</description>
+      <category>Rust</category>
+    </item>
+    <item>
+      <title>+4324★ cloudflare/security-audit-skill</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=cloudflare%2Fsecurity-audit-skill</link>
+      <guid isPermaLink="false">trending:cloudflare/security-audit-skill</guid>
+      <description>A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings · JavaScript · 76411★ / 5145 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>+4274★ Leonxlnx/taste-skill</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=Leonxlnx%2Ftaste-skill</link>
+      <guid isPermaLink="false">trending:Leonxlnx/taste-skill</guid>
+      <description>Agent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages · JavaScript · 119466★ / 7989 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>+4101★ deepseek-ai/deepseek-harness</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=deepseek-ai%2Fdeepseek-harness</link>
+      <guid isPermaLink="false">trending:deepseek-ai/deepseek-harness</guid>
+      <description>DeepSeek Harness: Everything is a Plugin. · TypeScript · 284827★ / 35405 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>+4025★ mvanhorn/last30days-skill</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=mvanhorn%2Flast30days-skill</link>
+      <guid isPermaLink="false">trending:mvanhorn/last30days-skill</guid>
+      <description>AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary · Python · 71613★ / 6343 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>+4018★ alibaba/open-code-review</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=alibaba%2Fopen-code-review</link>
+      <guid isPermaLink="false">trending:alibaba/open-code-review</guid>
+      <description>Secure, fast, efficient, battle-tested at Alibaba&apos;s scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI &amp; Anthropic compatible. · Go · 54890★ / 4534 forks</description>
+      <category>Go</category>
+    </item>
+    <item>
+      <title>+3931★ anthropics/skills</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=anthropics%2Fskills</link>
+      <guid isPermaLink="false">trending:anthropics/skills</guid>
+      <description>Public repository for Agent Skills · Python · 198186★ / 23196 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>+3927★ Graphify-Labs/graphify</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=Graphify-Labs%2Fgraphify</link>
+      <guid isPermaLink="false">trending:Graphify-Labs/graphify</guid>
+      <description>Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store. · Python · 151327★ / 14540 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>+3923★ firecrawl/firecrawl</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=firecrawl%2Ffirecrawl</link>
+      <guid isPermaLink="false">trending:firecrawl/firecrawl</guid>
+      <description>Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API. · TypeScript · 205560★ / 10751 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>+3886★ tashfeenahmed/freellmapi</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=tashfeenahmed%2Ffreellmapi</link>
+      <guid isPermaLink="false">trending:tashfeenahmed/freellmapi</guid>
+      <description>10.1 billion tokens per month. 87 free LLM providers. 1,313 free model endpoints. All behind one /v1 endpoint, plus any custom OpenAI-compatible endpoint. Smart routing, automatic failover, encrypted keys. Personal experimentation only. · TypeScript · 55817★ / 7954 forks</description>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>+3874★ RoutineMiku/apkstart</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=RoutineMiku%2Fapkstart</link>
+      <guid isPermaLink="false">trending:RoutineMiku/apkstart</guid>
+      <description>Windows 上的安卓应用运行器：双击 APK 即装，应用以独立窗口与桌面图标运行，自持 QEMU 运行时 · JavaScript · 8812★ / 850 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>+3856★ sherlock-project/sherlock</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=sherlock-project%2Fsherlock</link>
+      <guid isPermaLink="false">trending:sherlock-project/sherlock</guid>
+      <description>Hunt down social media accounts by username across social networks · Python · 115201★ / 13194 forks</description>
+      <category>Python</category>
+    </item>
+    <item>
+      <title>+3637★ heydamir/unslop</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=heydamir%2Funslop</link>
+      <guid isPermaLink="false">trending:heydamir/unslop</guid>
+      <description>A Claude skill that turns vibecoded, AI-looking UI into a designed interface · JavaScript · 19412★ / 1170 forks</description>
+      <category>JavaScript</category>
+    </item>
+    <item>
+      <title>+3602★ sindresorhus/awesome</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=sindresorhus%2Fawesome</link>
+      <guid isPermaLink="false">trending:sindresorhus/awesome</guid>
+      <description>😎 Awesome lists about all kinds of interesting topics [NOTE: Pull requests are temporarily disabled until I have a chance to catch up with the existing ones] · 未知语言 · 540171★ / 38561 forks</description>
+      <category>Other</category>
+    </item>
+    <item>
+      <title>+3532★ heygen-com/hyperframes</title>
+      <link>https://z324169276.github.io/github-rankings/?repo=heygen-com%2Fhyperframes</link>
+      <guid isPermaLink="false">trending:heygen-com/hyperframes</guid>
+      <description>AI video you can actually edit. HyperFrames is a free, open-source AI video editor. Describe any video and get a real project you can change down to the frame. · TypeScript · 87586★ / 8144 forks</description>
+      <category>TypeScript</category>
+    </item>
+  </channel>
+</rss>
